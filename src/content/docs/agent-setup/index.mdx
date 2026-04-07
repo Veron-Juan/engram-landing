@@ -1,0 +1,25 @@
+---
+title: Agent Setup
+description: Configure Engram for the coding agent you already use, from Claude Code to generic MCP clients.
+sidebar:
+  order: 2
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div class="eyebrow">Integration paths</div>
+
+## Choose the client, then choose the depth
+
+<p class="index-intro">
+	Some agents can use full plugins with session orchestration and compaction recovery. Others only need the MCP server. This section keeps those paths separate so setup stays readable.
+</p>
+
+<CardGrid class="section-grid" stagger>
+	<LinkCard title="Overview" description="What all integrations have in common and how to choose plugin vs bare MCP." href="/agent-setup/overview/" />
+	<LinkCard title="Claude Code" description="Marketplace plugin, setup command, or bare MCP." href="/agent-setup/claude-code/" />
+	<LinkCard title="OpenCode" description="Thin plugin plus automatic server orchestration." href="/agent-setup/opencode/" />
+	<LinkCard title="Gemini CLI" description="MCP plus Memory Protocol instructions." href="/agent-setup/gemini-cli/" />
+	<LinkCard title="Codex" description="MCP plus compaction-aware prompts." href="/agent-setup/codex/" />
+	<LinkCard title="VS Code and others" description="Native MCP configuration or generic MCP wiring." href="/agent-setup/vscode/" />
+</CardGrid>

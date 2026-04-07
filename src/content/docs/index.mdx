@@ -1,40 +1,62 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Engram Docs
+description: Persistent memory for AI coding agents, documented as a product instead of a starter template.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: Agent-agnostic memory, SQLite + FTS5, one binary, and a documentation experience organized around real workflows.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Install Engram
+      link: /getting-started/installation/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Set Up Your Agent
+      link: /agent-setup/
+      icon: right-arrow
+    - text: Explore the Architecture
+      link: /architecture/
+      icon: right-arrow
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Next steps
+<div class="eyebrow">Engram documentation system</div>
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+## Start with the job to be done
+
+<p class="index-intro">
+	These docs are organized to reduce search noise, guide first-time setup, and make `Ctrl + K` actually useful when you are under pressure.
+</p>
+
+
+<CardGrid class="section-grid" stagger>
+	<Card title="Install and save your first memory" icon="rocket">
+		Start with installation, understand what Engram stores, and run a first complete memory flow.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Connect the right agent" icon="setting">
+		Claude Code, OpenCode, Gemini CLI, Codex, VS Code, or any MCP-compatible client.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Understand the moving parts" icon="open-book">
+		See how CLI, MCP, HTTP API, TUI, sync, plugins, and storage fit together.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Go deep without hunting" icon="magnifier">
+		Use focused reference pages for commands, MCP tools, environment variables, and API routes.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Contribute without guessing the process" icon="pencil">
+		Contributor workflow, labels, testing expectations, and maintainers' triage cadence live here too.
 	</Card>
+</CardGrid>
+
+## What Engram is optimized for
+
+<div class="content-panel">
+	Engram gives coding agents a durable memory layer. Instead of capturing everything and cleaning it up later, the agent records what matters: decisions, bug fixes, discoveries, conventions, and session summaries.
+</div>
+
+## Follow the shortest path
+
+<CardGrid class="section-grid" stagger>
+	<LinkCard title="New here" description="Use the guided path from installation to your first save." href="/getting-started/" />
+	<LinkCard title="Need agent-specific setup" description="Jump directly to Claude Code, OpenCode, Gemini CLI, Codex, VS Code, or generic MCP." href="/agent-setup/" />
+	<LinkCard title="Need implementation details" description="Open the terse reference for commands, tools, variables, and endpoint shapes." href="/reference/" />
+	<LinkCard title="Need the mental model" description="Read the system overview, storage model, session semantics, and plugin architecture." href="/architecture/" />
 </CardGrid>

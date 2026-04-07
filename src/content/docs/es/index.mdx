@@ -1,0 +1,61 @@
+---
+title: Documentación de Engram
+description: Memoria persistente para agentes de programación, documentada como producto y no como un starter template.
+template: splash
+hero:
+  tagline: Memoria agnóstica al agente, SQLite + FTS5, un solo binario y una experiencia documental organizada alrededor de flujos reales.
+  actions:
+    - text: Instalar Engram
+      link: /es/getting-started/installation/
+      icon: right-arrow
+    - text: Configurar tu Agente
+      link: /es/agent-setup/
+      icon: right-arrow
+    - text: Explorar la Arquitectura
+      link: /es/architecture/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div class="eyebrow">Sistema documental de Engram</div>
+
+## Empieza por el trabajo que necesitas hacer
+
+<p class="index-intro">
+	Estos docs están organizados para reducir ruido en búsqueda, guiar la primera configuración y hacer que `Ctrl + K` realmente sirva cuando estás bajo presión.
+</p>
+
+<CardGrid class="section-grid" stagger>
+	<Card title="Instala y guarda tu primera memoria" icon="rocket">
+		Empieza por la instalación, entiende qué guarda Engram y completa un primer flujo de memoria de punta a punta.
+	</Card>
+	<Card title="Conecta el agente correcto" icon="setting">
+		Claude Code, OpenCode, Gemini CLI, Codex, VS Code o cualquier cliente compatible con MCP.
+	</Card>
+	<Card title="Entiende las piezas del sistema" icon="open-book">
+		Ve cómo encajan CLI, MCP, HTTP API, TUI, sync, plugins y almacenamiento.
+	</Card>
+	<Card title="Profundiza sin cazar información" icon="magnifier">
+		Usa páginas de referencia enfocadas para comandos, herramientas MCP, variables de entorno y rutas de la API.
+	</Card>
+	<Card title="Contribuye sin adivinar el proceso" icon="pencil">
+		Aquí también viven el workflow de contribución, labels, expectativas de testing y la cadencia de triage de maintainers.
+	</Card>
+</CardGrid>
+
+## Para qué está optimizado Engram
+
+<div class="content-panel">
+	Engram le da a los agentes de programación una capa de memoria duradera. En vez de capturar todo y limpiarlo después, el agente guarda lo importante: decisiones, bugfixes, descubrimientos, convenciones y resúmenes de sesión.
+</div>
+
+## Sigue el camino más corto
+
+<CardGrid class="section-grid" stagger>
+	<LinkCard title="¿Eres nuevo?" description="Sigue el camino guiado desde la instalación hasta tu primer guardado." href="/es/getting-started/" />
+	<LinkCard title="¿Necesitas configuración por agente?" description="Salta directo a Claude Code, OpenCode, Gemini CLI, Codex, VS Code o MCP genérico." href="/es/agent-setup/" />
+	<LinkCard title="¿Necesitas detalles de implementación?" description="Abre la referencia concisa para comandos, herramientas, variables y endpoints." href="/es/reference/" />
+	<LinkCard title="¿Necesitas el modelo mental?" description="Lee el overview del sistema, el modelo de storage, la semántica de sesiones y la arquitectura de plugins." href="/es/architecture/" />
+</CardGrid>

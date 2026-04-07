@@ -1,0 +1,170 @@
+:root {
+	--sl-color-accent-low: #f8e5d0;
+	--sl-color-accent: #b05a2b;
+	--sl-color-accent-high: #5c2a14;
+	--sl-color-white: #fffaf5;
+	--sl-color-gray-1: #f6efe7;
+	--sl-color-gray-2: #efe4d7;
+	--sl-color-gray-3: #d7c6b7;
+	--sl-color-gray-4: #9b8779;
+	--sl-color-gray-5: #63574f;
+	--sl-color-gray-6: #463e39;
+	--sl-color-black: #201a17;
+	--sl-font: Charter, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', 'Book Antiqua', Georgia, serif;
+	--sl-font-system: 'IBM Plex Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+	--sl-font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+	--sl-content-width: 54rem;
+	--sl-text-5xl: 3.4rem;
+	--engram-panel: linear-gradient(180deg, rgba(255, 250, 245, 0.96), rgba(244, 235, 224, 0.92));
+	--engram-ink-soft: rgba(32, 26, 23, 0.78);
+	--engram-glow: radial-gradient(circle at top left, rgba(176, 90, 43, 0.24), transparent 42%);
+}
+
+:root[data-theme='dark'] {
+	--sl-color-accent-low: #39241a;
+	--sl-color-accent: #f2a36f;
+	--sl-color-accent-high: #ffd8bd;
+	--sl-color-white: #fff4e7;
+	--sl-color-gray-1: #1d1815;
+	--sl-color-gray-2: #28211d;
+	--sl-color-gray-3: #3e342d;
+	--sl-color-gray-4: #7f6d63;
+	--sl-color-gray-5: #bea999;
+	--sl-color-gray-6: #e7d7ca;
+	--sl-color-black: #100d0c;
+	--engram-panel: linear-gradient(180deg, rgba(29, 24, 21, 0.96), rgba(40, 33, 29, 0.94));
+	--engram-ink-soft: rgba(255, 244, 231, 0.78);
+	--engram-glow: radial-gradient(circle at top left, rgba(242, 163, 111, 0.2), transparent 42%);
+}
+
+body {
+	background:
+		var(--engram-glow),
+		linear-gradient(180deg, rgba(244, 235, 224, 0.64), transparent 18%),
+		var(--sl-color-bg);
+}
+
+:root[data-theme='dark'] body {
+	background:
+		var(--engram-glow),
+		linear-gradient(180deg, rgba(23, 18, 15, 0.8), transparent 20%),
+		var(--sl-color-bg);
+}
+
+.hero {
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 20%, transparent);
+	border-radius: 28px;
+	padding: 2rem;
+	background: var(--engram-panel);
+	box-shadow: 0 20px 60px rgba(32, 26, 23, 0.08);
+	overflow: hidden;
+	position: relative;
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: auto -3rem -3rem auto;
+	width: 16rem;
+	height: 16rem;
+	border-radius: 999px;
+	background: radial-gradient(circle, rgba(176, 90, 43, 0.18), transparent 65%);
+	pointer-events: none;
+}
+
+.hero h1,
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+	letter-spacing: -0.03em;
+}
+
+.hero .tagline,
+.sl-markdown-content p {
+	color: var(--engram-ink-soft);
+}
+
+.sl-markdown-content h2 {
+	margin-top: 2.6rem;
+	padding-bottom: 0.35rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--sl-color-accent) 18%, transparent);
+}
+
+.sl-markdown-content :is(ul, ol) li + li {
+	margin-top: 0.4rem;
+}
+
+.sl-link-card,
+.card-grid .card {
+	border-radius: 20px;
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 12%, var(--sl-color-hairline));
+	background: color-mix(in srgb, var(--sl-color-bg) 88%, var(--sl-color-accent-low));
+	box-shadow: 0 14px 30px rgba(32, 26, 23, 0.06);
+}
+
+.sl-link-card:hover,
+.card-grid .card:hover {
+	border-color: color-mix(in srgb, var(--sl-color-accent) 30%, var(--sl-color-hairline));
+	transform: translateY(-2px);
+	transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.35rem 0.75rem;
+	margin-bottom: 1rem;
+	border-radius: 999px;
+	font: 600 0.82rem/1 var(--sl-font-system);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--sl-color-accent-high);
+	background: color-mix(in srgb, var(--sl-color-accent-low) 78%, transparent);
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 22%, transparent);
+}
+
+.index-intro {
+	font-size: 1.1rem;
+	max-width: 48rem;
+}
+
+.section-grid {
+	margin-top: 2rem;
+}
+
+.section-kicker {
+	font: 700 0.8rem/1 var(--sl-font-system);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--sl-color-accent);
+	margin-bottom: 0.8rem;
+}
+
+.sl-sidebar a[aria-current='page'] {
+	background: color-mix(in srgb, var(--sl-color-accent-low) 70%, transparent);
+	border-radius: 0.6rem;
+}
+
+.sl-markdown-content code {
+	border-radius: 0.35rem;
+	padding: 0.12rem 0.3rem;
+	background: color-mix(in srgb, var(--sl-color-accent-low) 52%, transparent);
+}
+
+.content-panel {
+	padding: 1.3rem 1.4rem;
+	border-radius: 18px;
+	background: color-mix(in srgb, var(--sl-color-bg) 88%, var(--sl-color-accent-low));
+	border: 1px solid color-mix(in srgb, var(--sl-color-accent) 12%, transparent);
+}
+
+@media (max-width: 50rem) {
+	.hero {
+		padding: 1.4rem;
+		border-radius: 22px;
+	}
+
+	:root {
+		--sl-text-5xl: 2.7rem;
+	}
+}

@@ -1,0 +1,19 @@
+---
+title: Guides
+description: Practical workflows for using Engram in real development sessions.
+sidebar:
+  order: 1
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Operational guides
+
+<CardGrid class="section-grid" stagger>
+	<LinkCard title="Daily Workflow" description="How Engram fits into normal coding sessions." href="/guides/daily-workflow/" />
+	<LinkCard title="Session Lifecycle" description="What happens from session start to summary and recovery." href="/guides/session-lifecycle/" />
+	<LinkCard title="Surviving Compaction" description="How to avoid losing state across summarization boundaries." href="/guides/surviving-compaction/" />
+	<LinkCard title="Git Sync" description="Share memories across machines with chunked sync." href="/guides/git-sync/" />
+	<LinkCard title="Privacy and Redaction" description="Use private tags without leaking sensitive content." href="/guides/privacy-and-redaction/" />
+	<LinkCard title="Running as a Service" description="Keep the HTTP API alive with a user service when needed." href="/guides/running-as-a-service/" />
+</CardGrid>

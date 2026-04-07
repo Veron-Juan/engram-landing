@@ -1,0 +1,19 @@
+---
+title: Guías
+description: Flujos prácticos para usar Engram en sesiones reales de desarrollo.
+sidebar:
+  order: 1
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Guías operativas
+
+<CardGrid class="section-grid" stagger>
+	<LinkCard title="Flujo Diario" description="Cómo encaja Engram en sesiones normales de programación." href="/es/guides/daily-workflow/" />
+	<LinkCard title="Ciclo de Vida de Sesión" description="Qué pasa desde el inicio de sesión hasta el resumen y la recuperación." href="/es/guides/session-lifecycle/" />
+	<LinkCard title="Sobrevivir a Compaction" description="Cómo evitar perder estado entre límites de resumición." href="/es/guides/surviving-compaction/" />
+	<LinkCard title="Git Sync" description="Comparte memorias entre máquinas con sync por chunks." href="/es/guides/git-sync/" />
+	<LinkCard title="Privacidad y Redacción" description="Usa etiquetas privadas sin filtrar contenido sensible." href="/es/guides/privacy-and-redaction/" />
+	<LinkCard title="Ejecutar como Servicio" description="Mantén viva la API HTTP con un servicio de usuario cuando lo necesites." href="/es/guides/running-as-a-service/" />
+</CardGrid>
