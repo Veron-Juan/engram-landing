@@ -21,6 +21,36 @@ export default defineConfig({
 					lang: 'es',
 				},
 			},
+			components: {
+				ThemeProvider: './src/components/ThemeProvider.astro',
+				ThemeSelect: './src/components/ThemeSelect.astro',
+			},
+			expressiveCode: {
+				themes: ['dracula'],
+				styleOverrides: {
+					borderRadius: '10px',
+					borderColor: 'rgba(234, 24, 137, 0.18)',
+					frames: {
+						editorBackground: '#0d0d10',
+						terminalBackground: '#0d0d10',
+						editorActiveTabBackground: '#0d0d10',
+						editorTabBarBackground: '#111114',
+						terminalTitlebarBackground: '#111114',
+						terminalTitlebarDotsForeground: '#ea1889',
+						terminalTitlebarDotsOpacity: '1',
+						terminalTitlebarForeground: '#9595a8',
+						terminalTitlebarBorderBottomColor: 'rgba(234, 24, 137, 0.15)',
+						inlineButtonForeground: '#9595a8',
+						inlineButtonBackground: '#ea1889',
+						inlineButtonBackgroundIdleOpacity: '0',
+						inlineButtonBackgroundHoverOrFocusOpacity: '0.15',
+						inlineButtonBackgroundActiveOpacity: '0.25',
+						tooltipSuccessBackground: 'rgba(234, 24, 137, 0.9)',
+						tooltipSuccessForeground: '#ffffff',
+						frameBoxShadowCssValue: '0 0 0 1px rgba(234, 24, 137, 0.18), 0 8px 32px rgba(0, 0, 0, 0.6)',
+					},
+				},
+			},
 			customCss: ['./src/styles/custom.css'],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Gentleman-Programming/engram' }],
 			sidebar: [
@@ -74,16 +104,8 @@ export default defineConfig({
 					translations: { es: 'Referencia' },
 					autogenerate: { directory: 'reference' },
 				},
-				{
-					label: 'Comparison',
-					translations: { es: 'Comparación' },
-					autogenerate: { directory: 'comparison' },
-				},
-				{
-					label: 'Contributing',
-					translations: { es: 'Contribuir' },
-					autogenerate: { directory: 'contributing' },
-				},
+				
+				
 			],
 		}),
 	],
