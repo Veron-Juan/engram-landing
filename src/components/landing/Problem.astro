@@ -1,0 +1,203 @@
+---
+// Problem section — the pain point narrative
+---
+
+<section class="problem section" id="problem">
+  <div class="container">
+    <div class="problem__inner">
+      <div class="problem__text reveal">
+        <p class="eyebrow">The problem</p>
+        <h2 class="display-lg problem__headline">
+          Your agent forgets everything<br/>
+          <span class="problem__emphasis">when the session ends.</span>
+        </h2>
+        <p class="problem__body">
+          Every time you start a new session, your AI coding agent has zero context.
+          The bug you fixed yesterday, the architecture decision you made last week,
+          the conventions your team follows &mdash; gone. You repeat yourself, re-explain
+          context, and watch the same mistakes happen again.
+        </p>
+        <p class="problem__body">
+          Engram gives your agent a persistent, searchable memory layer.
+          You never start from zero again.
+        </p>
+      </div>
+
+      <div class="problem__visual reveal reveal-delay-2">
+        <div class="problem__before">
+          <div class="problem__session">
+            <div class="problem__session-badge bad">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M7 4v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="7" cy="9.5" r="0.75" fill="currentColor"/>
+              </svg>
+              Without Engram
+            </div>
+            <div class="problem__session-content">
+              <div class="problem__msg problem__msg--agent">Starting session...</div>
+              <div class="problem__msg problem__msg--user">Remind me how we solved the N+1 query last week?</div>
+              <div class="problem__msg problem__msg--agent">I don't have any context from previous sessions. Could you explain the codebase?</div>
+              <div class="problem__msg problem__msg--user tired">...again?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="problem__divider-arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 16l7 7 7-7" stroke="#ea1889" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="problem__after">
+          <div class="problem__session">
+            <div class="problem__session-badge good">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              With Engram
+            </div>
+            <div class="problem__session-content">
+              <div class="problem__msg problem__msg--agent">Loading 24 memories... Session context restored.</div>
+              <div class="problem__msg problem__msg--agent accent-msg">Found it: <strong>Fixed N+1 query in UserList</strong> — added eager loading. Last session also decided to migrate to Prisma.</div>
+              <div class="problem__msg problem__msg--user happy">Let's pick up where we left off.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .problem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-subtle) 30%, var(--border-subtle) 70%, transparent);
+  }
+
+  .problem__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .problem__headline {
+    margin: 1rem 0 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .problem__emphasis {
+    color: var(--accent);
+  }
+
+  .problem__body {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 1.0625rem;
+  }
+
+  /* Chat mockup */
+  .problem__visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .problem__session {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+  }
+
+  .problem__session-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .problem__session-badge.bad {
+    color: #f87171;
+  }
+
+  .problem__session-badge.good {
+    color: #34d399;
+  }
+
+  .problem__session-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .problem__msg {
+    padding: 0.55rem 0.875rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    max-width: 85%;
+  }
+
+  .problem__msg--agent {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    align-self: flex-start;
+  }
+
+  .problem__msg--user {
+    background: rgba(234, 24, 137, 0.12);
+    color: var(--text-primary);
+    align-self: flex-end;
+    border: 1px solid rgba(234, 24, 137, 0.2);
+  }
+
+  .problem__msg.tired {
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  .problem__msg.happy {
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.2);
+    color: #6ee7b7;
+  }
+
+  .accent-msg {
+    border: 1px solid rgba(234, 24, 137, 0.2);
+    background: rgba(234, 24, 137, 0.07);
+    color: var(--text-primary);
+  }
+
+  .accent-msg strong { color: var(--accent); }
+
+  .problem__divider-arrow {
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 900px) {
+    .problem__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

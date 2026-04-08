@@ -1,0 +1,148 @@
+---
+import '@fontsource/syne/400.css';
+import '@fontsource/syne/600.css';
+import '@fontsource/syne/700.css';
+import '@fontsource/syne/800.css';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '../styles/landing.css';
+
+import Nav from '../components/landing/Nav.astro';
+import Hero from '../components/landing/Hero.astro';
+import Problem from '../components/landing/Problem.astro';
+import Features from '../components/landing/Features.astro';
+import HowItWorks from '../components/landing/HowItWorks.astro';
+import Agents from '../components/landing/Agents.astro';
+import Comparison from '../components/landing/Comparison.astro';
+import GithubSection from '../components/landing/GithubSection.astro';
+import FinalCTA from '../components/landing/FinalCTA.astro';
+import Footer from '../components/landing/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Persistent memory for AI coding agents. Agent-agnostic, SQLite + FTS5, single Go binary. Works with Claude Code, Gemini CLI, Codex, VS Code, Cursor, Windsurf and more." />
+    <meta name="keywords" content="AI agent memory, MCP server, Claude Code, persistent memory, Go binary, SQLite, coding agent" />
+    <meta property="og:title" content="Engram — Give your agent a brain" />
+    <meta property="og:description" content="Persistent memory for AI coding agents. Agent-agnostic, SQLite + FTS5, single Go binary." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Engram — Give your agent a brain" />
+    <meta name="twitter:description" content="Persistent memory for AI coding agents. Agent-agnostic, SQLite + FTS5, single Go binary." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Engram — Give your agent a brain</title>
+  </head>
+  <body class="landing-body">
+    <Nav />
+    <main id="main-content">
+      <Hero />
+      <Problem />
+      <Features />
+      <HowItWorks />
+      <Agents />
+      <Comparison />
+      <GithubSection />
+      <FinalCTA />
+    </main>
+    <Footer />
+
+    <script>
+      // ============================================================
+      // Scroll Reveal — IntersectionObserver
+      // ============================================================
+      const initReveal = () => {
+        const elements = document.querySelectorAll<HTMLElement>('.reveal');
+        if (!elements.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        elements.forEach((el) => observer.observe(el));
+      };
+
+      // ============================================================
+      // Hero Parallax — smooth, performant
+      // ============================================================
+      const initParallax = () => {
+        const orb = document.querySelector<HTMLElement>('.hero__orb');
+        const grid = document.querySelector<HTMLElement>('.hero__grid');
+        if (!orb || !grid) return;
+
+        let ticking = false;
+        let lastY = 0;
+
+        window.addEventListener(
+          'scroll',
+          () => {
+            lastY = window.scrollY;
+            if (!ticking) {
+              requestAnimationFrame(() => {
+                const y = lastY * 0.15;
+                orb.style.transform = `translateY(${y}px)`;
+                grid.style.transform = `translateY(${lastY * 0.05}px)`;
+                ticking = false;
+              });
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+      };
+
+      // ============================================================
+      // Skip link for a11y — auto-add if missing
+      // ============================================================
+      const addSkipLink = () => {
+        if (document.querySelector('.skip-link')) return;
+        const skip = document.createElement('a');
+        skip.href = '#main-content';
+        skip.className = 'skip-link';
+        skip.textContent = 'Skip to content';
+        skip.style.cssText =
+          'position:fixed;top:-100%;left:1rem;z-index:9999;padding:0.5rem 1rem;background:#ea1889;color:#fff;border-radius:6px;font-weight:600;transition:top 0.2s';
+        skip.addEventListener('focus', () => { skip.style.top = '1rem'; });
+        skip.addEventListener('blur', () => { skip.style.top = '-100%'; });
+        document.body.prepend(skip);
+      };
+
+      // Boot
+      document.addEventListener('DOMContentLoaded', () => {
+        initReveal();
+        initParallax();
+        addSkipLink();
+
+        // Trigger reveals for elements already in viewport on load
+        document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            // Small stagger for hero elements
+            const delay = el.style.transitionDelay || '0s';
+            setTimeout(() => el.classList.add('visible'), parseFloat(delay) * 1000 + 50);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Smooth focus outline for keyboard nav */
+  :focus-visible {
+    outline: 2px solid #ea1889;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+</style>

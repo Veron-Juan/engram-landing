@@ -1,0 +1,308 @@
+---
+// Features — Bento grid with 6 key features
+---
+
+<section class="features section" id="features">
+  <div class="container">
+    <div class="features__header reveal">
+      <p class="eyebrow">Features</p>
+      <h2 class="display-lg features__headline">
+        Everything you need,<br/>
+        nothing you don't.
+      </h2>
+      <p class="features__sub">
+        Designed for developers who value their time and tools.
+        No Node.js, no Python, no Docker. One binary.
+      </p>
+    </div>
+
+    <div class="bento">
+
+      <!-- Large card: Agent Agnostic -->
+      <div class="card bento__card bento__card--wide reveal">
+        <div class="bento__card-inner">
+          <div class="icon-glow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="9"/>
+              <path d="M11 2v4M11 16v4M2 11h4M16 11h4"/>
+              <circle cx="11" cy="11" r="3"/>
+            </svg>
+          </div>
+          <div class="bento__card-text">
+            <h3 class="bento__card-title">Agent agnostic</h3>
+            <p class="bento__card-desc">
+              Works with any MCP-compatible agent. Claude Code, OpenCode, Gemini CLI,
+              Codex, VS Code, Cursor, Windsurf, or anything else you throw at it.
+            </p>
+          </div>
+        </div>
+        <div class="bento__agents-row" aria-label="Supported agents">
+          <span class="bento__agent-chip">Claude Code</span>
+          <span class="bento__agent-chip">OpenCode</span>
+          <span class="bento__agent-chip">Gemini CLI</span>
+          <span class="bento__agent-chip">Codex</span>
+          <span class="bento__agent-chip">VS Code</span>
+          <span class="bento__agent-chip">Cursor</span>
+          <span class="bento__agent-chip">Windsurf</span>
+        </div>
+      </div>
+
+      <!-- SQLite FTS5 -->
+      <div class="card bento__card reveal reveal-delay-1">
+        <div class="icon-glow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <ellipse cx="11" cy="6" rx="8" ry="3"/>
+            <path d="M3 6v5c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/>
+            <path d="M3 11v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/>
+          </svg>
+        </div>
+        <h3 class="bento__card-title">SQLite + FTS5 search</h3>
+        <p class="bento__card-desc">
+          Full-text search built-in. Zero external processes.
+          Your memories are a single <code>engram.db</code> file.
+        </p>
+      </div>
+
+      <!-- Single binary -->
+      <div class="card bento__card reveal reveal-delay-2">
+        <div class="icon-glow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="3" width="16" height="16" rx="3"/>
+            <path d="M8 11l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="bento__card-title">One binary, zero deps</h3>
+        <p class="bento__card-desc">
+          A single Go binary. No Node.js, no Python, no Docker, no Chrome DB.
+          <code>go install</code> and you're done.
+        </p>
+      </div>
+
+      <!-- TUI -->
+      <div class="card bento__card reveal reveal-delay-1">
+        <div class="icon-glow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="2" y="4" width="18" height="14" rx="2"/>
+            <path d="M7 9l3 3-3 3M12 15h4"/>
+          </svg>
+        </div>
+        <h3 class="bento__card-title">Interactive TUI</h3>
+        <p class="bento__card-desc">
+          <code>engram tui</code> launches a beautiful terminal UI.
+          Navigate, search, and explore memories with vim keys.
+        </p>
+      </div>
+
+      <!-- Git Sync: large card -->
+      <div class="card bento__card bento__card--tall reveal reveal-delay-2">
+        <div class="icon-glow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="6" cy="6" r="2.5"/>
+            <circle cx="16" cy="6" r="2.5"/>
+            <circle cx="11" cy="17" r="2.5"/>
+            <path d="M6 8.5v2a2.5 2.5 0 0 0 2.5 2.5h5a2.5 2.5 0 0 0 2.5-2.5v-2"/>
+            <path d="M11 14.5V11"/>
+          </svg>
+        </div>
+        <h3 class="bento__card-title">Git sync</h3>
+        <p class="bento__card-desc">
+          Share memories across machines with <code>engram sync</code>.
+          Uses compressed chunks — no merge conflicts, no huge files.
+        </p>
+        <div class="bento__code-block">
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync</span></div>
+          <div class="bento__code-line bc-comment"># exported 3 new memories →</div>
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">git commit -m <span class="bc-str">"sync engram"</span></span></div>
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync --import</span></div>
+          <div class="bento__code-line bc-comment"># ✓ imported 3 memories</div>
+        </div>
+      </div>
+
+      <!-- MCP Tools -->
+      <div class="card bento__card bento__card--wide reveal reveal-delay-3">
+        <div class="bento__card-inner">
+          <div class="icon-glow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="bento__card-text">
+            <h3 class="bento__card-title">15 MCP tools</h3>
+            <p class="bento__card-desc">
+              mem_save, mem_search, mem_context, mem_session_summary, mem_timeline,
+              and 10 more. Standard MCP protocol — plug in and go.
+            </p>
+          </div>
+        </div>
+        <div class="bento__tools-grid">
+          <span class="bento__tool-chip">mem_save</span>
+          <span class="bento__tool-chip">mem_search</span>
+          <span class="bento__tool-chip">mem_context</span>
+          <span class="bento__tool-chip">mem_session_summary</span>
+          <span class="bento__tool-chip">mem_timeline</span>
+          <span class="bento__tool-chip accent-chip">+ 10 more</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .features__header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .features__headline {
+    margin: 1rem 0 1rem;
+    color: var(--text-primary);
+  }
+
+  .features__sub {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  /* Bento grid */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .bento__card {
+    border-radius: 0;
+    border: none;
+    background: var(--bg-surface);
+    padding: 2rem;
+    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento__card:hover {
+    background: var(--bg-elevated);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .bento__card-inner {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .bento__card-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .bento__card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .bento__card-desc code {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+
+  .icon-glow {
+    flex-shrink: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .bento__card-inner .icon-glow {
+    margin-bottom: 0;
+    margin-top: 0.125rem;
+  }
+
+  .bento__card--wide {
+    grid-column: span 2;
+  }
+
+  .bento__card--tall {
+    grid-row: span 2;
+  }
+
+  /* Agent chips */
+  .bento__agents-row,
+  .bento__tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+  }
+
+  .bento__agent-chip,
+  .bento__tool-chip {
+    padding: 0.25em 0.65em;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+    letter-spacing: 0.02em;
+  }
+
+  .accent-chip {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: rgba(234, 24, 137, 0.25);
+  }
+
+  /* Code block inside card */
+  .bento__code-block {
+    margin-top: 1.5rem;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.775rem;
+    line-height: 1.9;
+  }
+
+  .bento__code-line { display: flex; gap: 0.5rem; }
+  .bc-prompt { color: var(--accent); }
+  .bc-cmd { color: var(--text-primary); }
+  .bc-comment { color: #52525b; }
+  .bc-str { color: #86efac; }
+
+  @media (max-width: 1024px) {
+    .bento {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bento {
+      grid-template-columns: 1fr;
+    }
+
+    .bento__card--wide,
+    .bento__card--tall {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+</style>

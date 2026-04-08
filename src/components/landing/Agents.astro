@@ -1,0 +1,195 @@
+---
+// Agents Grid — all supported agents
+const agents = [
+  { name: "Claude Code", desc: "Plugin marketplace", icon: "claude", setup: "claude plugin install engram" },
+  { name: "OpenCode", desc: "Built-in setup", icon: "opencode", setup: "engram setup opencode" },
+  { name: "Gemini CLI", desc: "Built-in setup", icon: "gemini", setup: "engram setup gemini-cli" },
+  { name: "Codex", desc: "Built-in setup", icon: "codex", setup: "engram setup codex" },
+  { name: "VS Code", desc: "MCP config", icon: "vscode", setup: "code --add-mcp '...'" },
+  { name: "Cursor", desc: "MCP compatible", icon: "cursor", setup: "See agent docs" },
+  { name: "Windsurf", desc: "MCP compatible", icon: "windsurf", setup: "See agent docs" },
+  { name: "Any MCP Agent", desc: "Standard protocol", icon: "any", setup: "engram mcp" },
+];
+---
+
+<section class="agents section" id="agents">
+  <div class="container">
+    <div class="agents__header reveal">
+      <p class="eyebrow">Compatibility</p>
+      <h2 class="display-lg">
+        Works with <span class="gradient-text">every agent</span><br/>
+        you already use.
+      </h2>
+      <p class="agents__sub">
+        Standard MCP protocol. If it speaks MCP, it works with Engram.
+      </p>
+    </div>
+
+    <div class="agents__grid">
+      {agents.map((agent, i) => (
+        <div class={`card agents__card reveal reveal-delay-${(i % 4) + 1}`}>
+          <div class="agents__card-icon" aria-hidden="true">
+            {agent.icon === 'claude' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 4c-1.4 3.5-4.5 9-10 10 5.5 1 8.6 6.5 10 10 1.4-3.5 4.5-9 10-10-5.5-1-8.6-6.5-10-10z" fill="#ea1889"/>
+              </svg>
+            )}
+            {agent.icon === 'opencode' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#ea1889" stroke-width="1.5" stroke-linecap="round">
+                <rect x="4" y="4" width="20" height="20" rx="4"/>
+                <path d="M10 11l-3 3 3 3M18 11l3 3-3 3"/>
+              </svg>
+            )}
+            {agent.icon === 'gemini' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M14 4 C14 4 8 14 14 14 C20 14 14 24 14 24 C14 24 20 14 14 14 C8 14 14 4 14 4Z" fill="#ea1889"/>
+              </svg>
+            )}
+            {agent.icon === 'codex' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#ea1889" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 7l4 7-4 7M12 19h11"/>
+              </svg>
+            )}
+            {agent.icon === 'vscode' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#ea1889" stroke-width="1.5" stroke-linecap="round">
+                <path d="M3 6l9.5 9.5L3 21l4-4-4-2.5L9 12 3 10l4-4z"/>
+                <path d="M25 6L15 16l1.5 1.5 8.5 4V3.5l-8.5 4L14 9l11 6-11 6"/>
+              </svg>
+            )}
+            {(agent.icon === 'cursor' || agent.icon === 'windsurf') && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#ea1889" stroke-width="1.5" stroke-linecap="round">
+                <path d="M4 4l20 10-20 10V4z"/>
+              </svg>
+            )}
+            {agent.icon === 'any' && (
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#ea1889" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="14" cy="14" r="10"/>
+                <path d="M4 14h20M14 4C11 9 11 19 14 24M14 4C17 9 17 19 14 24"/>
+              </svg>
+            )}
+          </div>
+          <h3 class="agents__card-name">{agent.name}</h3>
+          <p class="agents__card-desc">{agent.desc}</p>
+          <div class="agents__card-cmd">
+            <code>{agent.setup}</code>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="agents__footer reveal">
+      <a href="/agent-setup/" class="btn btn-secondary">
+        View all setup guides
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agents {
+    position: relative;
+  }
+
+  .agents__header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .agents__header h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .agents__sub {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+  }
+
+  .agents__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .agents__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .agents__card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .agents__card-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 16px;
+    background: radial-gradient(ellipse, rgba(234,24,137,0.25) 0%, transparent 70%);
+    filter: blur(6px);
+    z-index: -1;
+  }
+
+  .agents__card-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .agents__card-desc {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .agents__card-cmd {
+    margin-top: auto;
+    padding: 0.35rem 0.65rem;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .agents__card-cmd code {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+  }
+
+  .agents__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    .agents__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .agents__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .agents__grid { grid-template-columns: 1fr; }
+  }
+</style>

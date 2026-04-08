@@ -1,0 +1,129 @@
+---
+// Final CTA — install + docs
+---
+
+<section class="cta section" id="get-started">
+  <div class="cta__bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="cta__inner reveal">
+      <div class="cta__glow" aria-hidden="true"></div>
+
+      <p class="eyebrow">Get started</p>
+      <h2 class="display-xl cta__headline">
+        Your agent's<br/>
+        memory starts<br/>
+        <span class="gradient-text">today.</span>
+      </h2>
+      <p class="cta__sub">
+        One command. Persistent memory. Works with every agent you already use.
+        No Node.js, no Python, no Docker. Just a single binary.
+      </p>
+
+      <div class="cta__actions">
+        <a href="/getting-started/installation/" class="btn btn-primary btn-lg">
+          Install Engram
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/getting-started/" class="btn btn-secondary btn-lg">
+          Read the Docs
+        </a>
+        <a href="https://github.com/Gentleman-Programming/engram" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 .25a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33C3.72 14.68 3.26 13 3.26 13c-.37-.93-.9-1.17-.9-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.67 7.67 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.52.56.83 1.28.83 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.14.46.55.38A8 8 0 0 0 8 .25z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="cta__install reveal reveal-delay-2">
+        <div class="cta__install-bar">
+          <span class="ci-prompt">$</span>
+          <code class="ci-cmd">brew install gentleman-programming/tap/engram</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(234,24,137,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta__inner {
+    position: relative;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .cta__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(234,24,137,0.2) 0%, transparent 65%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .cta .eyebrow { margin-bottom: 1.25rem; }
+
+  .cta__headline {
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+  }
+
+  .cta__sub {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+    margin-inline: auto;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .cta__install {
+    display: inline-block;
+  }
+
+  .cta__install-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+  }
+
+  .ci-prompt { color: var(--accent); font-weight: 700; }
+  .ci-cmd { font-family: var(--font-mono); color: var(--text-primary); background: none; }
+</style>

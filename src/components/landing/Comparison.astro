@@ -1,0 +1,213 @@
+---
+// Comparison — Engram vs claude-mem visual premium
+const rows = [
+  { label: "Language", engram: "Go (single binary)", other: "TypeScript + Python" },
+  { label: "Agent lock-in", engram: "None — any MCP agent", other: "Claude Code only" },
+  { label: "Search", engram: "SQLite FTS5 (built-in)", other: "ChromaDB (extra process)" },
+  { label: "Storage", engram: "Single .db file", other: "SQLite + ChromaDB" },
+  { label: "Dependencies", engram: "Zero", other: "Node.js, Bun, uv, Python" },
+  { label: "Processes", engram: "One binary", other: "Worker + ChromaDB" },
+  { label: "Auto-capture", engram: "Agent decides (clean)", other: "All calls then compress" },
+  { label: "License", engram: "MIT", other: "AGPL-3.0" },
+];
+---
+
+<section class="comparison section" id="comparison">
+  <div class="comparison__bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="comparison__header reveal">
+      <p class="eyebrow">Comparison</p>
+      <h2 class="display-lg">
+        <span class="gradient-text">Better by design.</span><br/>
+        Not by accident.
+      </h2>
+      <p class="comparison__sub">
+        Engram is inspired by claude-mem (28K+ stars). But made different.
+      </p>
+    </div>
+
+    <div class="comparison__table-wrap reveal reveal-delay-1">
+      <table class="comparison__table" role="table">
+        <thead>
+          <tr>
+            <th class="comparison__th comparison__th-label" scope="col">Feature</th>
+            <th class="comparison__th comparison__th-engram" scope="col">
+              <span class="comparison__brand-badge">
+                <svg width="14" height="14" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <circle cx="14" cy="14" r="13" stroke="#ea1889" stroke-width="1.5"/>
+                  <path d="M8 14 Q14 6 20 14 Q14 22 8 14Z" fill="#ea1889" opacity="0.9"/>
+                </svg>
+                Engram
+              </span>
+            </th>
+            <th class="comparison__th comparison__th-other" scope="col">claude-mem</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr class="comparison__row">
+              <td class="comparison__td comparison__td-label">{row.label}</td>
+              <td class="comparison__td comparison__td-engram">
+                <span class="comparison__check" aria-hidden="true">✓</span>
+                {row.engram}
+              </td>
+              <td class="comparison__td comparison__td-other">{row.other}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison__note reveal reveal-delay-2">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="7" stroke="#ea1889" stroke-width="1.2"/>
+        <path d="M8 6v4" stroke="#ea1889" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="8" cy="11" r="0.6" fill="#ea1889"/>
+      </svg>
+      Inspired by <a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener noreferrer">claude-mem</a> — but agent-agnostic, simpler, and built different.
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comparison__bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(234, 24, 137, 0.08) 0%, transparent 65%);
+    pointer-events: none;
+    filter: blur(40px);
+  }
+
+  .comparison__header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .comparison__header h2 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .comparison__sub {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+  }
+
+  .comparison__table-wrap {
+    overflow-x: auto;
+    border-radius: 18px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+  }
+
+  .comparison__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed;
+  }
+
+  .comparison__th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-elevated);
+  }
+
+  .comparison__th-label { width: 30%; }
+  .comparison__th-engram {
+    width: 35%;
+    color: var(--accent);
+    background: rgba(234, 24, 137, 0.05);
+    border-left: 1px solid var(--border-glow);
+    border-right: 1px solid var(--border-glow);
+  }
+
+  .comparison__brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    font-size: 0.875rem;
+  }
+
+  .comparison__row {
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.2s;
+  }
+
+  .comparison__row:last-child {
+    border-bottom: none;
+  }
+
+  .comparison__row:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .comparison__td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .comparison__td-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .comparison__td-engram {
+    color: var(--text-primary);
+    background: rgba(234, 24, 137, 0.035);
+    border-left: 1px solid rgba(234, 24, 137, 0.15);
+    border-right: 1px solid rgba(234, 24, 137, 0.15);
+    font-weight: 500;
+  }
+
+  .comparison__td-other {
+    color: var(--text-muted);
+  }
+
+  .comparison__check {
+    color: var(--accent);
+    margin-right: 0.4rem;
+    font-weight: 700;
+  }
+
+  .comparison__note {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .comparison__note a {
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .comparison__note a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>
