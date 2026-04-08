@@ -29,7 +29,7 @@ export default defineConfig({
 				themes: ['dracula'],
 				styleOverrides: {
 					borderRadius: '10px',
-					borderColor: 'rgba(234, 24, 137, 0.18)',
+					borderColor: 'rgba(255, 255, 255, 0.04)',
 					frames: {
 						editorBackground: '#0d0d10',
 						terminalBackground: '#0d0d10',
@@ -39,18 +39,19 @@ export default defineConfig({
 						terminalTitlebarDotsForeground: '#ea1889',
 						terminalTitlebarDotsOpacity: '1',
 						terminalTitlebarForeground: '#9595a8',
-						terminalTitlebarBorderBottomColor: 'rgba(234, 24, 137, 0.15)',
-						inlineButtonForeground: '#9595a8',
+						terminalTitlebarBorderBottomColor: 'rgba(255, 255, 255, 0.06)',
+						inlineButtonForeground: '#c8c8e0',
 						inlineButtonBackground: '#ea1889',
 						inlineButtonBackgroundIdleOpacity: '0',
 						inlineButtonBackgroundHoverOrFocusOpacity: '0.15',
 						inlineButtonBackgroundActiveOpacity: '0.25',
 						tooltipSuccessBackground: 'rgba(234, 24, 137, 0.9)',
 						tooltipSuccessForeground: '#ffffff',
-						frameBoxShadowCssValue: '0 0 0 1px rgba(234, 24, 137, 0.18), 0 8px 32px rgba(0, 0, 0, 0.6)',
+						frameBoxShadowCssValue: '0 8px 40px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.35)',
 					},
 				},
 			},
+			tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
 			customCss: ['./src/styles/custom.css'],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Gentleman-Programming/engram' }],
 			sidebar: [
@@ -94,11 +95,7 @@ export default defineConfig({
 					translations: { es: 'Arquitectura' },
 					autogenerate: { directory: 'architecture' },
 				},
-				{
-					label: 'Plugins',
-					translations: { es: 'Plugins' },
-					autogenerate: { directory: 'plugins' },
-				},
+				
 				{
 					label: 'Reference',
 					translations: { es: 'Referencia' },
