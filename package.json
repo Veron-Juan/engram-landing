@@ -12,6 +12,8 @@
   "dependencies": {
     "@astrojs/starlight": "^0.38.2",
     "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/geist": "^5.2.8",
+    "@fontsource/geist-mono": "^5.2.7",
     "@fontsource/syne": "^5.2.7",
     "astro": "^6.0.1",
     "sharp": "^0.34.2"

@@ -3,10 +3,29 @@
 const REPO = 'Gentleman-Programming/engram';
 const API_BASE = 'https://api.github.com';
 
+// Fallback values (update manually if needed — used when API is rate-limited or unavailable)
+const FALLBACK = {
+  stars: 2368,
+  forks: 253,
+  contributors: [
+    { login: 'Alan-TheGentleman', avatar_url: 'https://avatars.githubusercontent.com/u/6935240?v=4', html_url: 'https://github.com/Alan-TheGentleman', contributions: 134 },
+    { login: 'Twinber',           avatar_url: 'https://avatars.githubusercontent.com/u/5513621?v=4',  html_url: 'https://github.com/Twinber',           contributions: 3 },
+    { login: 'SantiagoBobrik',    avatar_url: 'https://avatars.githubusercontent.com/u/43079605?v=4', html_url: 'https://github.com/SantiagoBobrik',    contributions: 2 },
+    { login: 'sanurb',            avatar_url: 'https://avatars.githubusercontent.com/u/60886336?v=4', html_url: 'https://github.com/sanurb',            contributions: 2 },
+    { login: 'avirgili-eclub',    avatar_url: 'https://avatars.githubusercontent.com/u/108747635?v=4',html_url: 'https://github.com/avirgili-eclub',    contributions: 2 },
+    { login: 'alaslibress',       avatar_url: 'https://avatars.githubusercontent.com/u/185132130?v=4',html_url: 'https://github.com/alaslibress',       contributions: 1 },
+    { login: 'bmunoz89',          avatar_url: 'https://avatars.githubusercontent.com/u/1822983?v=4',  html_url: 'https://github.com/bmunoz89',          contributions: 1 },
+    { login: 'chrux',             avatar_url: 'https://avatars.githubusercontent.com/u/610949?v=4',   html_url: 'https://github.com/chrux',             contributions: 1 },
+    { login: 'pascencio',         avatar_url: 'https://avatars.githubusercontent.com/u/9783678?v=4',  html_url: 'https://github.com/pascencio',         contributions: 1 },
+    { login: 'd4rw1nC4C',         avatar_url: 'https://avatars.githubusercontent.com/u/223385542?v=4',html_url: 'https://github.com/d4rw1nC4C',         contributions: 1 },
+    { login: 'jalfarocode',       avatar_url: 'https://avatars.githubusercontent.com/u/249999384?v=4',html_url: 'https://github.com/jalfarocode',       contributions: 1 },
+    { login: 'TESTPERSONAL',      avatar_url: 'https://avatars.githubusercontent.com/u/6664588?v=4',  html_url: 'https://github.com/TESTPERSONAL',      contributions: 1 },
+  ],
+};
+
 interface RepoData {
   stargazers_count: number;
   forks_count: number;
-  open_issues_count: number;
 }
 
 interface Contributor {
@@ -16,18 +35,22 @@ interface Contributor {
   contributions: number;
 }
 
-let stars = 0;
-let forks = 0;
-let contributors: Contributor[] = [];
+let stars = FALLBACK.stars;
+let forks = FALLBACK.forks;
+let contributors: Contributor[] = FALLBACK.contributors;
+
+// Build auth headers — use GITHUB_TOKEN if available for 5000 req/hour instead of 60
+const token = import.meta.env.GITHUB_TOKEN;
+const headers: Record<string, string> = {
+  'Accept': 'application/vnd.github.v3+json',
+  'User-Agent': 'engram-landing',
+};
+if (token) headers['Authorization'] = `Bearer ${token}`;
 
 try {
   const [repoRes, contribRes] = await Promise.all([
-    fetch(`${API_BASE}/repos/${REPO}`, {
-      headers: { 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'engram-landing' },
-    }),
-    fetch(`${API_BASE}/repos/${REPO}/contributors?per_page=50`, {
-      headers: { 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'engram-landing' },
-    }),
+    fetch(`${API_BASE}/repos/${REPO}`, { headers }),
+    fetch(`${API_BASE}/repos/${REPO}/contributors?per_page=50`, { headers }),
   ]);
 
   if (repoRes.ok) {
@@ -37,10 +60,11 @@ try {
   }
 
   if (contribRes.ok) {
-    contributors = await contribRes.json();
+    const data: Contributor[] = await contribRes.json();
+    if (data.length > 0) contributors = data;
   }
 } catch {
-  // Build continues with fallback values (0s / empty)
+  // Network error — fallback values already set above
 }
 
 function formatNumber(n: number): string {
@@ -112,7 +136,37 @@ const contributorCount = contributors.length;
       <div class="github__left reveal reveal-delay-2">
 
         <!-- Avatar stack (overlapping circles) -->
-      
+        <div class="github__avatar-stack">
+          {contributors.slice(0, 8).map((c, i) => (
+            <a
+              href={c.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github__avatar-link"
+              title={`@${c.login}`}
+              style={`z-index: ${contributors.length - i}`}
+            >
+              <img
+                src={`${c.avatar_url}&s=80`}
+                alt={`@${c.login}`}
+                width="44"
+                height="44"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          ))}
+          {contributors.length > 8 && (
+            <a
+              href={`https://github.com/${REPO}/graphs/contributors`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github__avatar-more"
+            >
+              +{contributors.length - 8}
+            </a>
+          )}
+        </div>
 
         <!-- Contributor list -->
         <div class="github__contributors-card">

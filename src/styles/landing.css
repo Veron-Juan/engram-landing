@@ -20,9 +20,9 @@
   --text-muted: #52525b;
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', 'Fira Code', monospace;
+  --font-display: 'Geist', sans-serif;
+  --font-body: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'Fira Code', monospace;
 
   /* Spacing */
   --section-py: clamp(5rem, 10vw, 9rem);
