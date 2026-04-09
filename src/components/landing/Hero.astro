@@ -18,8 +18,8 @@
       </div>
 
       <h1 class="display-xl hero__headline reveal reveal-delay-2">
-        Give your agent a<br/>
-        <span class="gradient-text">brain.</span>
+        <span class="hero__headline-line hero__headline-line--primary">Give your agent</span>
+        <span class="hero__headline-line hero__headline-line--secondary gradient-text">a brain.</span>
       </h1>
 
       <p class="hero__sub reveal reveal-delay-3">
@@ -57,12 +57,22 @@
         Also available for <a href="/getting-started/installation/">Windows &amp; Mac/Linux</a>
       </p>
 
-      <div class="hero__terminal reveal reveal-delay-6" aria-hidden="true">
+      <div class="hero__visual-row reveal reveal-delay-6">
+        <div class="hero__visual-image-wrap">
+          <img src="/test2.png" alt="Engram elephant mascot" class="hero__visual-img" />
+          <div class="hero__tagline" aria-label="An elephant never forgets.">
+            <span class="hero__tagline-prompt">$</span>
+            <span class="hero__tagline-text" id="elephant-tagline"></span>
+            <span class="hero__tagline-cursor" aria-hidden="true">█</span>
+          </div>
+        </div>
+        <div class="hero__terminal" aria-hidden="true">
+        
         <div class="hero__terminal-bar">
           <span class="dot dot-red"></span>
           <span class="dot dot-yellow"></span>
           <span class="dot dot-green"></span>
-          <span class="hero__terminal-title">engram tui</span>
+          
         </div>
         <div class="hero__terminal-body">
           <div class="hero__terminal-screen">
@@ -113,10 +123,11 @@
               <span>/ search</span>
               <span class="term-dim">•</span>
               <span>q quit</span>
-              <span class="hero__cursor" aria-hidden="true">█</span>
+              <!-- <span class="hero__cursor" aria-hidden="true">█</span> -->
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -173,10 +184,16 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding-block: var(--section-py);
     text-align: center;
     
+  }
+
+  .hero__left {
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
   }
 
   .hero__badge {
@@ -205,12 +222,26 @@
     50% { opacity: 0.5; box-shadow: 0 0 3px var(--accent); }
   }
 
+ 
+
   .hero__headline {
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     text-align: center;
-    width: 100%;
     
+  font-size: clamp(6.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+    
+  }
+
+  .hero__headline-line {
+    display: inline;
+  }
+
+  .hero__headline-line--primary {
+    margin-right: 0.28ch;
   }
 
   .hero__sub {
@@ -218,7 +249,8 @@
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 2.5rem;
-    
+    max-width: 780px;
+    margin-inline: auto;
     text-align: center;
   }
 
@@ -301,9 +333,100 @@
     border-color: var(--accent);
   }
 
+  /* Visual row: image + terminal side by side */
+  .hero__visual-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .hero__visual-image-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .hero__visual-img {
+    width: 50%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+    animation: elephant-float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(234, 24, 137, 0.2)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    transition: filter 0.4s ease;
+  }
+
+  .hero__visual-img:hover {
+    filter: drop-shadow(0 0 32px rgba(234, 24, 137, 0.4)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+  }
+
+  @keyframes elephant-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero__tagline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.45rem 0.85rem;
+    background: rgba(13, 13, 16, 0.85);
+    border: 1px solid rgba(234, 24, 137, 0.2);
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: clamp(0.7rem, 1vw, 0.82rem);
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero__tagline-prompt {
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .hero__tagline-text {
+    color: #e4e4f0;
+    letter-spacing: 0.02em;
+    min-height: 1.2em;
+  }
+
+  .hero__tagline-cursor {
+    color: #ea1889;
+    animation: blink 1.1s step-end infinite;
+    font-size: 0.75em;
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {
+    .hero__visual-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__visual-image-wrap {
+      width: 38%;
+      max-width: 320px;
+    }
+
+    .hero__visual-img {
+      max-width: 320px;
+    }
+  }
+
   /* Terminal mockup */
   .hero__terminal {
-    margin-top: 3rem;
+    margin-top: 0;
     width: 100%;
     max-width: 680px;
     background: #0d0d10;
@@ -529,6 +652,17 @@
       overflow: hidden;
     }
   }
+
+  @media (min-width: 901px) {
+    .hero__headline-line {
+      display: block;
+    }
+
+    .hero__headline-line--primary {
+      margin-right: 0;
+      white-space: nowrap;
+    }
+  }
 </style>
 
 <script>
@@ -543,4 +677,30 @@
       setTimeout(() => { copyBtn.innerHTML = original; }, 2000);
     } catch {}
   });
+
+  // Typewriter effect for elephant tagline
+  const taglineEl = document.getElementById('elephant-tagline');
+  const phrase = 'An elephant never forgets.';
+  let i = 0;
+
+  function typeChar() {
+    if (!taglineEl || i > phrase.length) return;
+    taglineEl.textContent = phrase.slice(0, i);
+    i++;
+    if (i <= phrase.length) {
+      setTimeout(typeChar, 70 + Math.random() * 40);
+    }
+  }
+
+  // Start typing when the element scrolls into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(typeChar, 600);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (taglineEl) observer.observe(taglineEl);
 </script>
