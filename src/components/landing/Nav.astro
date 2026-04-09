@@ -56,6 +56,9 @@
     right: 0;
     z-index: 100;
     padding-block: 1rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
     transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
   }
 
@@ -71,6 +74,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    position: relative;
   }
 
   .nav__logo {
@@ -131,6 +135,7 @@
     cursor: pointer;
     padding: 0.5rem;
     margin-left: auto;
+    flex-shrink: 0;
   }
 
   .nav__hamburger span {
@@ -171,7 +176,20 @@
   @media (max-width: 720px) {
     .nav__links,
     .nav__actions { display: none; }
-    .nav__hamburger { display: flex; }
+
+    .nav__hamburger {
+      display: flex;
+      position: absolute;
+      right: clamp(1rem, 4vw, 1.5rem);
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 0;
+    }
+
+    .nav__container {
+      gap: 0;
+      /* logo fills left, hamburger is absolutely anchored right */
+    }
   }
 </style>
 

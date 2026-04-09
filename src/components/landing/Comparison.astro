@@ -210,4 +210,22 @@ const rows = [
     color: var(--accent);
     border-color: var(--accent);
   }
+
+  @media (max-width: 720px) {
+    .comparison__table {
+      table-layout: auto;
+      font-size: 0.8rem;
+    }
+
+    .comparison__th,
+    .comparison__td {
+      padding: 0.75rem 0.75rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .comparison__th-label { width: auto; }
+    .comparison__th-engram { width: auto; }
+  }
 </style>
