@@ -4,6 +4,9 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	redirects: {
+		'/es': '/',
+	},
 	integrations: [
 		starlight({
 			title: {
@@ -22,6 +25,7 @@ export default defineConfig({
 				},
 			},
 			components: {
+				SiteTitle: './src/components/DocsSiteTitle.astro',
 				ThemeProvider: './src/components/ThemeProvider.astro',
 				ThemeSelect: './src/components/ThemeSelect.astro',
 			},

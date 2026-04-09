@@ -1,10 +1,15 @@
 /* ============================================================
    ENGRAM DOCS — Design System v2
    Dark-only theme. Accent: #ea1889
-   Fonts: Syne (headings) · Outfit (body) · JetBrains Mono (code)
+	Fonts: Geist (ui/body/headings) · Geist Mono (code)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import '@fontsource/geist/400.css';
+@import '@fontsource/geist/500.css';
+@import '@fontsource/geist/600.css';
+@import '@fontsource/geist/700.css';
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
 
 /* ── Color tokens ─────────────────────────────────────────── */
 :root {
@@ -37,12 +42,14 @@
 	--sl-color-black:  #090910;  /* deepest — main page background */
 
 	/* Typography */
-	--sl-font:        'Outfit', system-ui, sans-serif;
-	--sl-font-system: 'Outfit', system-ui, sans-serif;
-	--sl-font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+	--sl-font:        'Geist', system-ui, sans-serif;
+	--sl-font-system: 'Geist', system-ui, sans-serif;
+	--sl-font-mono:   'Geist Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
 
 	/* Layout */
 	--sl-content-width: 54rem;
+	--engram-docs-toc-width: 12rem;
+	--engram-docs-anchor-offset: calc(var(--sl-nav-height) + 2rem);
 
 	/* Scale — tighter heading ratio (h1/h2/h3 at 2.8/2.1/1.8×) */
 	--sl-text-5xl: 2.8rem;
@@ -68,21 +75,21 @@ body {
 		radial-gradient(ellipse 40% 30% at 85% 100%, rgba(234, 24, 137, 0.04) 0%, transparent 55%);
 }
 
-/* ── Typography — headings use Syne ──────────────────────── */
+/* ── Typography — docs use Geist ─────────────────────────── */
 h1, h2, h3, h4, h5, h6,
 .hero h1,
 .sl-markdown-content h1,
 .sl-markdown-content h2,
 .sl-markdown-content h3,
 .sl-markdown-content h4 {
-	font-family: 'Syne', system-ui, sans-serif;
-	letter-spacing: -0.025em;
+	font-family: 'Geist', system-ui, sans-serif;
+	letter-spacing: -0.03em;
 	font-weight: 700;
 }
 
 .hero h1 {
 	font-weight: 800;
-	letter-spacing: -0.035em;
+	letter-spacing: -0.04em;
 }
 
 /* ── Text color and paragraph styling ────────────────────── */
@@ -99,20 +106,24 @@ h1, h2, h3, h4, h5, h6,
 
 /* ── Heading spacing ────────────────────────────────────── */
 .sl-markdown-content h2 {
-	margin-top: 2rem;
-	margin-bottom: 0.5rem;
+	margin-top: 3rem;
+	margin-bottom: 0.75rem;
+	scroll-margin-top: var(--engram-docs-anchor-offset);
+	padding-top: 0.35rem;
 	padding-bottom: 0.4rem;
 	border-bottom: 1px solid var(--engram-accent-border-subtle);
 }
 
 .sl-markdown-content h3 {
-	margin-top: 1.5rem;
-	margin-bottom: 0.4rem;
+	margin-top: 2rem;
+	margin-bottom: 0.55rem;
+	scroll-margin-top: calc(var(--engram-docs-anchor-offset) + 0.25rem);
 }
 
 .sl-markdown-content h4 {
 	margin-top: 1.2rem;
 	margin-bottom: 0.3rem;
+	scroll-margin-top: calc(var(--engram-docs-anchor-offset) + 0.25rem);
 }
 
 /* ── Inline code ─────────────────────────────────────────── */
@@ -158,7 +169,7 @@ h1, h2, h3, h4, h5, h6,
 /* CTA buttons */
 .hero .action {
 	border-radius: 8px;
-	font-family: 'Outfit', system-ui, sans-serif;
+	font-family: 'Geist', system-ui, sans-serif;
 	font-weight: 600;
 	letter-spacing: 0.01em;
 	transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
@@ -258,7 +269,7 @@ h1, h2, h3, h4, h5, h6,
 	padding: 0.3rem 0.8rem;
 	margin-bottom: 1.1rem;
 	border-radius: 999px;
-	font-family: 'Outfit', system-ui, sans-serif;
+	font-family: 'Geist', system-ui, sans-serif;
 	font-size: 0.78rem;
 	font-weight: 600;
 	letter-spacing: 0.10em;
@@ -279,7 +290,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* ── Section kicker label ────────────────────────────────── */
 .section-kicker {
-	font-family: 'Outfit', system-ui, sans-serif;
+	font-family: 'Geist', system-ui, sans-serif;
 	font-size: 0.78rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -328,7 +339,7 @@ header.header {
 .sl-markdown-content thead th {
 	background: rgba(234, 24, 137, 0.08);
 	color: var(--engram-accent-high);
-	font-family: 'Syne', system-ui, sans-serif;
+	font-family: 'Geist', system-ui, sans-serif;
 	font-weight: 600;
 	font-size: 0.85rem;
 	letter-spacing: 0.04em;
@@ -592,19 +603,25 @@ header.header {
 starlight-toc a[aria-current='true'] {
 	color: var(--engram-accent-high);
 	border-left-color: var(--engram-accent) !important;
+	background: linear-gradient(90deg, rgba(234, 24, 137, 0.12), transparent 82%);
 }
 
-/* Right TOC panel — narrower column */
+/* Right TOC panel — aligned with Starlight layout math */
 @media (min-width: 72rem) {
-	.right-sidebar-container {
-		width: 14rem;
+	:root {
+		--sl-sidebar-width: var(--engram-docs-toc-width);
+		--sl-content-width: 56rem;
 	}
+
 	.right-sidebar-panel {
-		padding: 1rem 0.75rem;
+		padding: 1.25rem 0.9rem 1.5rem 1rem;
 	}
+
 	.right-sidebar-panel .sl-container {
-		width: auto;
-		max-width: 12.5rem;
+		width: min(100%, 10.75rem);
+		max-width: 10.75rem;
+		padding-left: 0.7rem;
+		border-left: 1px solid rgba(234, 24, 137, 0.10);
 	}
 }
 
