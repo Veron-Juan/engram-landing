@@ -54,7 +54,7 @@
       </div>
 
       <p class="hero__platforms reveal reveal-delay-6">
-        Also available for <a href="/getting-started/installation/">Windows &amp; Linux</a>
+        Also available for <a href="/getting-started/installation/">Windows &amp; Mac/Linux</a>
       </p>
 
       <div class="hero__terminal reveal reveal-delay-6" aria-hidden="true">
@@ -175,6 +175,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding-block: var(--section-py);
+    text-align: center;
     
   }
 
@@ -187,6 +188,7 @@
     border: 1px solid rgba(234, 24, 137, 0.25);
     border-radius: 999px;
     margin-bottom: 1.5rem;
+    
   }
 
   .hero__badge-dot {
@@ -206,8 +208,8 @@
   .hero__headline {
     margin-bottom: 1.5rem;
     color: var(--text-primary);
-    
-    
+    text-align: center;
+    width: 100%;
     
   }
 
@@ -216,15 +218,17 @@
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 2.5rem;
-    max-width: 840px;
     
+    text-align: center;
   }
 
   .hero__actions {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
+    
   }
 
   .hero__install {
@@ -244,6 +248,7 @@
     color: var(--text-secondary);
     max-width: 100%;
     overflow: hidden;
+    
   }
 
   .hero__install-prompt {
