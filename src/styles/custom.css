@@ -606,20 +606,25 @@ starlight-toc a[aria-current='true'] {
 	background: linear-gradient(90deg, rgba(234, 24, 137, 0.12), transparent 82%);
 }
 
-/* Right TOC panel — aligned with Starlight layout math */
+/* Layout — left nav sidebar + right TOC panel */
 @media (min-width: 72rem) {
 	:root {
-		--sl-sidebar-width: var(--engram-docs-toc-width);
+		--sl-sidebar-width: 17rem;
 		--sl-content-width: 56rem;
 	}
 
+	/* Cap the right TOC column so it stays tight regardless of viewport size */
+	.right-sidebar-container {
+		max-width: 15rem;
+	}
+
 	.right-sidebar-panel {
-		padding: 1.25rem 0.9rem 1.5rem 1rem;
+		padding: 1.25rem 0.75rem 1.5rem 0.9rem;
 	}
 
 	.right-sidebar-panel .sl-container {
-		width: min(100%, 10.75rem);
-		max-width: 10.75rem;
+		width: min(100%, 12rem);
+		max-width: 12rem;
 		padding-left: 0.7rem;
 		border-left: 1px solid rgba(234, 24, 137, 0.10);
 	}
