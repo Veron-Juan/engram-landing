@@ -9,6 +9,7 @@ export default defineConfig({
 	},
 	integrations: [
 		starlight({
+			favicon: '/favicon-engram.svg',
 			title: {
 				en: 'Engram Docs',
 				es: 'Documentacion de Engram',
