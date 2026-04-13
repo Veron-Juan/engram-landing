@@ -14,27 +14,27 @@
     <div class="hero__left reveal">
       <div class="hero__badge eyebrow reveal reveal-delay-1">
         <span class="hero__badge-dot" aria-hidden="true"></span>
-        Single binary &mdash; Zero dependencies
+        <span data-i18n="hero.badge">Single binary &mdash; Zero dependencies</span>
       </div>
 
       <h1 class="display-xl hero__headline reveal reveal-delay-2">
-        <span class="hero__headline-line hero__headline-line--primary">Give your agent</span>
-        <span class="hero__headline-line hero__headline-line--secondary gradient-text">a brain.</span>
+        <span class="hero__headline-line hero__headline-line--primary" data-i18n="hero.headline1">Give your agent</span>
+        <span class="hero__headline-line hero__headline-line--secondary gradient-text" data-i18n="hero.headline2">a brain.</span>
       </h1>
 
-      <p class="hero__sub reveal reveal-delay-3">
+      <p class="hero__sub reveal reveal-delay-3" data-i18n="hero.sub">
         Persistent memory for AI coding agents. Agent-agnostic, SQLite + FTS5,
         a single Go binary. Works with Claude Code, Gemini CLI, Codex, VS Code and more.
       </p>
 
       <div class="hero__actions reveal reveal-delay-4">
         <a href="/getting-started/installation/" class="btn btn-primary btn-lg">
-          Install Engram
+          <span data-i18n="hero.cta.primary">Install Engram</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 1v10M3 7l5 5 5-5M1 13h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/getting-started/" class="btn btn-secondary btn-lg">
+        <a href="/getting-started/" class="btn btn-secondary btn-lg" data-i18n="hero.cta.secondary">
           Read the docs
         </a>
       </div>
@@ -43,7 +43,7 @@
         <div class="hero__install-bar">
           <span class="hero__install-prompt">$</span>
           <code class="hero__install-cmd">brew install gentleman-programming/tap/engram</code>
-          <button class="hero__copy-btn" id="copy-install" aria-label="Copy install command">
+          <button class="hero__copy-btn" id="copy-install" aria-label="Copy install command" data-i18n-attr="aria-label:hero.copy">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
               <rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
               <path d="M3 3V2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <p class="hero__platforms reveal reveal-delay-6">
+      <p class="hero__platforms reveal reveal-delay-6" data-i18n-html="hero.platforms">
         Also available for <a href="/getting-started/installation/">Windows &amp; Mac/Linux</a>
       </p>
 
@@ -76,53 +76,53 @@
         </div>
         <div class="hero__terminal-body">
           <div class="hero__terminal-screen">
-            <div class="hero__terminal-heading">engram - Persistent Memory for AI Agents</div>
+            <div class="hero__terminal-heading" data-i18n="hero.terminal.heading">engram - Persistent Memory for AI Agents</div>
             <div class="hero__terminal-rule"></div>
 
            
 
             <div class="hero__terminal-projects">
-              <span class="term-label">Projects:</span>
+              <span class="term-label" data-i18n="hero.terminal.projectsLabel">Projects:</span>
               <span class="hero__terminal-project-list">engram, client-api, landing-engram</span>
             </div>
 
-            <div class="hero__terminal-section-title">Recent observations - 3 total</div>
+            <div class="hero__terminal-section-title" data-i18n="hero.terminal.sectionTitle">Recent observations - 3 total</div>
 
             <div class="hero__terminal-list">
               <div class="hero__terminal-list-row hero__terminal-list-row--active">
                 <span class="hero__terminal-caret">▸</span>
                 <span class="hero__terminal-id">#118</span>
-                <span class="hero__terminal-tag hero__terminal-tag--architecture">[architecture]</span>
-                <span class="hero__terminal-entry">Refined sync boundary for memory export</span>
+                <span class="hero__terminal-tag hero__terminal-tag--architecture" data-i18n="hero.terminal.tag.architecture">[architecture]</span>
+                <span class="hero__terminal-entry" data-i18n="hero.terminal.row1">Refined sync boundary for memory export</span>
               </div>
               <div class="hero__terminal-list-row hero__terminal-list-row--detail">
                 <span class="hero__terminal-indent"></span>
-                <span class="hero__terminal-detail"><strong>What</strong>: consolidated chunk writes and reduced duplicate export passes...</span>
+                <span class="hero__terminal-detail" data-i18n-html="hero.terminal.row1detail"><strong>What</strong>: consolidated chunk writes and reduced duplicate export passes...</span>
               </div>
 
               <div class="hero__terminal-list-row">
                 <span class="hero__terminal-indent"></span>
                 <span class="hero__terminal-id">#117</span>
-                <span class="hero__terminal-tag hero__terminal-tag--bugfix">[bugfix]</span>
-                <span class="hero__terminal-entry">Fixed broken session resume after compaction</span>
+                <span class="hero__terminal-tag hero__terminal-tag--bugfix" data-i18n="hero.terminal.tag.bugfix">[bugfix]</span>
+                <span class="hero__terminal-entry" data-i18n="hero.terminal.row2">Fixed broken session resume after compaction</span>
               </div>
 
               <div class="hero__terminal-list-row">
                 <span class="hero__terminal-indent"></span>
                 <span class="hero__terminal-id">#116</span>
-                <span class="hero__terminal-tag hero__terminal-tag--decision">[decision]</span>
-                <span class="hero__terminal-entry">Use topic keys for evolving project memories</span>
+                <span class="hero__terminal-tag hero__terminal-tag--decision" data-i18n="hero.terminal.tag.decision">[decision]</span>
+                <span class="hero__terminal-entry" data-i18n="hero.terminal.row3">Use topic keys for evolving project memories</span>
               </div>
             </div>
 
             <div class="hero__terminal-footer">
-              <span>j/k navigate</span>
+              <span data-i18n="hero.terminal.footer.nav">j/k navigate</span>
               <span class="term-dim">•</span>
-              <span>enter select</span>
+              <span data-i18n="hero.terminal.footer.select">enter select</span>
               <span class="term-dim">•</span>
-              <span>/ search</span>
+              <span data-i18n="hero.terminal.footer.search">/ search</span>
               <span class="term-dim">•</span>
-              <span>q quit</span>
+              <span data-i18n="hero.terminal.footer.quit">q quit</span>
               <!-- <span class="hero__cursor" aria-hidden="true">█</span> -->
             </div>
           </div>
@@ -676,8 +676,16 @@
 
   // Typewriter effect for elephant tagline
   const taglineEl = document.getElementById('elephant-tagline');
-  const phrase = 'An elephant never forgets.';
+  type LandingLang = 'en' | 'es';
+  const phrases = {
+    en: 'An elephant never forgets.',
+    es: 'Un elefante nunca olvida.'
+  };
+  const storedLang = localStorage.getItem('engram-landing-lang');
+  const currentLang: LandingLang = storedLang === 'es' ? 'es' : 'en';
+  let phrase = phrases[currentLang];
   let i = 0;
+  let started = false;
 
   function typeChar() {
     if (!taglineEl || i > phrase.length) return;
@@ -692,6 +700,7 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        started = true;
         setTimeout(typeChar, 600);
         observer.disconnect();
       }
@@ -699,4 +708,12 @@
   }, { threshold: 0.5 });
 
   if (taglineEl) observer.observe(taglineEl);
+
+  window.addEventListener('engram:langchange', (event) => {
+    const nextLang = (event as CustomEvent<{ lang?: LandingLang }>).detail?.lang === 'es' ? 'es' : 'en';
+    phrase = phrases[nextLang];
+    i = 0;
+    if (taglineEl) taglineEl.textContent = '';
+    if (started) setTimeout(typeChar, 120);
+  });
 </script>

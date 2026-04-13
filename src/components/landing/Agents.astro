@@ -15,12 +15,12 @@ const agents = [
 <section class="agents section" id="agents">
   <div class="container">
     <div class="agents__header reveal">
-      <p class="eyebrow">Compatibility</p>
+      <p class="eyebrow" data-i18n="agents.eyebrow">Compatibility</p>
       <h2 class="display-lg">
-        Works with <span class="gradient-text">every agent</span><br/>
-        you already use.
+        <span data-i18n="agents.headline1">Works with</span> <span class="gradient-text" data-i18n="agents.headline2">every agent</span><br/>
+        <span data-i18n="agents.headline3">you already use.</span>
       </h2>
-      <p class="agents__sub">
+      <p class="agents__sub" data-i18n="agents.sub">
         Standard MCP protocol. If it speaks MCP, it works with Engram.
       </p>
     </div>
@@ -191,7 +191,7 @@ const agents = [
             )}
           </div>
           <h3 class="agents__card-name">{agent.name}</h3>
-          <p class="agents__card-desc">{agent.desc}</p>
+          <p class="agents__card-desc" data-i18n={`agents.desc.${i}`}>{agent.desc}</p>
           <div class="agents__card-cmd">
             <code>{agent.setup}</code>
           </div>
@@ -201,7 +201,7 @@ const agents = [
 
     <div class="agents__footer reveal">
       <a href="/agent-setup/" class="btn btn-secondary">
-        View all setup guides
+        <span data-i18n="agents.footer">View all setup guides</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>

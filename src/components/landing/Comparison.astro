@@ -17,12 +17,12 @@ const rows = [
 
   <div class="container">
     <div class="comparison__header reveal">
-      <p class="eyebrow">Comparison</p>
+      <p class="eyebrow" data-i18n="comparison.eyebrow">Comparison</p>
       <h2 class="display-lg">
-        <span class="gradient-text">Better by design.</span><br/>
-        Not by accident.
+        <span class="gradient-text" data-i18n="comparison.headline1">Better by design.</span><br/>
+        <span data-i18n="comparison.headline2">Not by accident.</span>
       </h2>
-      <p class="comparison__sub">
+      <p class="comparison__sub" data-i18n="comparison.sub">
         Engram is inspired by claude-mem. But made different.
       </p>
     </div>
@@ -31,7 +31,7 @@ const rows = [
       <table class="comparison__table" role="table">
         <thead>
           <tr>
-            <th class="comparison__th comparison__th-label" scope="col">Feature</th>
+            <th class="comparison__th comparison__th-label" scope="col" data-i18n="comparison.th.feature">Feature</th>
             <th class="comparison__th comparison__th-engram" scope="col">
               <span class="comparison__brand-badge">
                 <svg width="14" height="14" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -41,25 +41,25 @@ const rows = [
                 Engram
               </span>
             </th>
-            <th class="comparison__th comparison__th-other" scope="col">claude-mem</th>
+            <th class="comparison__th comparison__th-other" scope="col" data-i18n="comparison.th.claude">claude-mem</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
+          {rows.map((row, i) => (
             <tr class="comparison__row">
-              <td class="comparison__td comparison__td-label">{row.label}</td>
+              <td class="comparison__td comparison__td-label" data-i18n={`comparison.row.${i}.label`}>{row.label}</td>
               <td class="comparison__td comparison__td-engram">
                 <span class="comparison__check" aria-hidden="true">✓</span>
-                {row.engram}
+                <span data-i18n={`comparison.row.${i}.engram`}>{row.engram}</span>
               </td>
-              <td class="comparison__td comparison__td-other">{row.other}</td>
+              <td class="comparison__td comparison__td-other" data-i18n={`comparison.row.${i}.other`}>{row.other}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
 
-    <div class="comparison__note reveal reveal-delay-2">
+    <div class="comparison__note reveal reveal-delay-2" data-i18n="comparison.note">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <circle cx="8" cy="8" r="7" stroke="#ea1889" stroke-width="1.2"/>
         <path d="M8 6v4" stroke="#ea1889" stroke-width="1.2" stroke-linecap="round"/>

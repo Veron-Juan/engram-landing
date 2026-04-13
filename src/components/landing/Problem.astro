@@ -6,18 +6,18 @@
   <div class="container">
     <div class="problem__inner">
       <div class="problem__text reveal">
-        <p class="eyebrow">The problem</p>
+        <p class="eyebrow" data-i18n="problem.eyebrow">The problem</p>
         <h2 class="display-lg problem__headline">
-          Your agent forgets everything<br/>
-          <span class="problem__emphasis">when the session ends.</span>
+          <span data-i18n="problem.headline1">Your agent forgets everything</span><br/>
+          <span class="problem__emphasis" data-i18n="problem.headline2">when the session ends.</span>
         </h2>
-        <p class="problem__body">
+        <p class="problem__body" data-i18n="problem.body1">
           Every time you start a new session, your AI coding agent has zero context.
           The bug you fixed yesterday, the architecture decision you made last week,
           the conventions your team follows &mdash; gone. You repeat yourself, re-explain
           context, and watch the same mistakes happen again.
         </p>
-        <p class="problem__body">
+        <p class="problem__body" data-i18n="problem.body2">
           Engram gives your agent a persistent, searchable memory layer.
           You never start from zero again.
         </p>
@@ -32,13 +32,13 @@
                 <path d="M7 4v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                 <circle cx="7" cy="9.5" r="0.75" fill="currentColor"/>
               </svg>
-              Without Engram
+              <span data-i18n="problem.without">Without Engram</span>
             </div>
             <div class="problem__session-content">
-              <div class="problem__msg problem__msg--agent">Starting session...</div>
-              <div class="problem__msg problem__msg--user">Remind me how we solved the N+1 query last week?</div>
-              <div class="problem__msg problem__msg--agent">I don't have any context from previous sessions. Could you explain the codebase?</div>
-              <div class="problem__msg problem__msg--user tired">...again?</div>
+              <div class="problem__msg problem__msg--agent" data-i18n="problem.chat.starting">Starting session...</div>
+              <div class="problem__msg problem__msg--user" data-i18n="problem.chat.user1">Remind me how we solved the N+1 query last week?</div>
+              <div class="problem__msg problem__msg--agent" data-i18n="problem.chat.agent1">I don't have any context from previous sessions. Could you explain the codebase?</div>
+              <div class="problem__msg problem__msg--user tired" data-i18n="problem.chat.tired">...again?</div>
             </div>
           </div>
         </div>
@@ -55,12 +55,12 @@
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2.5 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              With Engram
+              <span data-i18n="problem.with">With Engram</span>
             </div>
             <div class="problem__session-content">
-              <div class="problem__msg problem__msg--agent">Loading 24 memories... Session context restored.</div>
-              <div class="problem__msg problem__msg--agent accent-msg">Found it: <strong>Fixed N+1 query in UserList</strong> — added eager loading. Last session also decided to migrate to Prisma.</div>
-              <div class="problem__msg problem__msg--user happy">Let's pick up where we left off.</div>
+              <div class="problem__msg problem__msg--agent" data-i18n="problem.chat.loading">Loading 24 memories... Session context restored.</div>
+              <div class="problem__msg problem__msg--agent accent-msg" data-i18n-html="problem.chat.found">Found it: <strong>Fixed N+1 query in UserList</strong> — added eager loading. Last session also decided to migrate to Prisma.</div>
+              <div class="problem__msg problem__msg--user happy" data-i18n="problem.chat.happy">Let's pick up where we left off.</div>
             </div>
           </div>
         </div>

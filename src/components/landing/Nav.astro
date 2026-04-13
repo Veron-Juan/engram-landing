@@ -19,19 +19,24 @@
     </a>
 
     <nav class="nav__links" aria-label="Main navigation">
-      <a href="/getting-started/" class="nav__link">Docs</a>
-      <a href="/architecture/" class="nav__link">Architecture</a>
-      <a href="/agent-setup/" class="nav__link">Agents</a>
-      <a href="https://github.com/Gentleman-Programming/engram" class="nav__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="/getting-started/" class="nav__link" data-i18n="nav.docs">Docs</a>
+      <a href="/architecture/" class="nav__link" data-i18n="nav.architecture">Architecture</a>
+      <a href="/agent-setup/" class="nav__link" data-i18n="nav.agents">Agents</a>
+      <a href="https://github.com/Gentleman-Programming/engram" class="nav__link" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
     </nav>
 
     <div class="nav__actions">
       <a href="/getting-started/installation/" class="btn btn-primary btn-install">
-        Install
+        <span data-i18n="nav.install">Install</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M7 1v8M3 6l4 4 4-4M1 11h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
+      <div class="lang-toggle" role="group" aria-label="Language selector" data-i18n-attr="aria-label:nav.languageLabel">
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
     </div>
 
     <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -40,11 +45,16 @@
   </div>
 
   <div class="nav__mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="/getting-started/" class="nav__mobile-link">Docs</a>
-    <a href="/architecture/" class="nav__mobile-link">Architecture</a>
-    <a href="/agent-setup/" class="nav__mobile-link">Agents</a>
-    <a href="https://github.com/Gentleman-Programming/engram" class="nav__mobile-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="/getting-started/installation/" class="btn btn-primary" style="margin-top:0.5rem">Install</a>
+    <a href="/getting-started/" class="nav__mobile-link" data-i18n="nav.docs">Docs</a>
+    <a href="/architecture/" class="nav__mobile-link" data-i18n="nav.architecture">Architecture</a>
+    <a href="/agent-setup/" class="nav__mobile-link" data-i18n="nav.agents">Agents</a>
+    <a href="https://github.com/Gentleman-Programming/engram" class="nav__mobile-link" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
+    <div class="lang-toggle lang-toggle--mobile" role="group" aria-label="Language selector" data-i18n-attr="aria-label:nav.languageLabel">
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <a href="/getting-started/installation/" class="btn btn-primary" style="margin-top:0.5rem"><span data-i18n="nav.install">Install</span></a>
   </div>
 </header>
 
@@ -121,6 +131,51 @@
     gap: 0.75rem;
   }
 
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.2rem 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .lang-toggle--mobile {
+    margin-top: 0.75rem;
+    align-self: flex-start;
+  }
+
+  .lang-btn {
+    border: 0;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.35rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .lang-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .lang-btn.active {
+    color: var(--accent);
+    background: rgba(234, 24, 137, 0.12);
+  }
+
+  .lang-sep {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
   .btn-install {
     padding: 0.5rem 1.1rem;
     font-size: 0.875rem;
@@ -193,10 +248,362 @@
   }
 </style>
 
-<script>
+<script is:inline>
+  const translations = {
+    en: {
+      'nav.docs': 'Docs',
+      'nav.architecture': 'Architecture',
+      'nav.agents': 'Agents',
+      'nav.github': 'GitHub',
+      'nav.install': 'Install',
+      'nav.languageLabel': 'Language selector',
+      'hero.badge': 'Single binary — Zero dependencies',
+      'hero.headline1': 'Give your agent',
+      'hero.headline2': 'a brain.',
+      'hero.sub': 'Persistent memory for AI coding agents. Agent-agnostic, SQLite + FTS5, a single Go binary. Works with Claude Code, Gemini CLI, Codex, VS Code and more.',
+      'hero.cta.primary': 'Install Engram',
+      'hero.cta.secondary': 'Read the docs',
+      'hero.copy': 'Copy install command',
+      'hero.platforms': 'Also available for <a href="/getting-started/installation/">Windows &amp; Mac/Linux</a>',
+      'hero.terminal.heading': 'engram - Persistent Memory for AI Agents',
+      'hero.terminal.projectsLabel': 'Projects:',
+      'hero.terminal.sectionTitle': 'Recent observations - 3 total',
+      'hero.terminal.row1': 'Refined sync boundary for memory export',
+      'hero.terminal.row1detail': '<strong>What</strong>: consolidated chunk writes and reduced duplicate export passes...',
+      'hero.terminal.row2': 'Fixed broken session resume after compaction',
+      'hero.terminal.row3': 'Use topic keys for evolving project memories',
+      'hero.terminal.tag.architecture': '[architecture]',
+      'hero.terminal.tag.bugfix': '[bugfix]',
+      'hero.terminal.tag.decision': '[decision]',
+      'hero.terminal.footer.nav': 'j/k navigate',
+      'hero.terminal.footer.select': 'enter select',
+      'hero.terminal.footer.search': '/ search',
+      'hero.terminal.footer.quit': 'q quit',
+      'problem.eyebrow': 'The problem',
+      'problem.headline1': 'Your agent forgets everything',
+      'problem.headline2': 'when the session ends.',
+      'problem.body1': 'Every time you start a new session, your AI coding agent has zero context. The bug you fixed yesterday, the architecture decision you made last week, the conventions your team follows — gone. You repeat yourself, re-explain context, and watch the same mistakes happen again.',
+      'problem.body2': 'Engram gives your agent a persistent, searchable memory layer. You never start from zero again.',
+      'problem.without': 'Without Engram',
+      'problem.with': 'With Engram',
+      'problem.chat.starting': 'Starting session...',
+      'problem.chat.user1': 'Remind me how we solved the N+1 query last week?',
+      'problem.chat.agent1': "I don't have any context from previous sessions. Could you explain the codebase?",
+      'problem.chat.tired': '...again?',
+      'problem.chat.loading': 'Loading 24 memories... Session context restored.',
+      'problem.chat.found': 'Found it: <strong>Fixed N+1 query in UserList</strong> — added eager loading. Last session also decided to migrate to Prisma.',
+      'problem.chat.happy': "Let's pick up where we left off.",
+      'features.eyebrow': 'Features',
+      'features.headline': "Everything you need,<br/>nothing you don't.",
+      'features.sub': 'Designed for developers who value their time and tools. No Node.js, no Python, no Docker. One binary.',
+      'features.card1.title': 'Agent agnostic',
+      'features.card1.desc': 'Works with any MCP-compatible agent. Claude Code, OpenCode, Gemini CLI, Codex, VS Code, Cursor, Windsurf, or anything else you throw at it.',
+      'features.card2.title': 'SQLite + FTS5 search',
+      'features.card2.desc': 'Full-text search built-in. Zero external processes. Your memories are a single <code>engram.db</code> file.',
+      'features.card3.title': 'One binary, zero deps',
+      'features.card3.desc': "A single Go binary. No Node.js, no Python, no Docker, no Chrome DB. <code>go install</code> and you're done.",
+      'features.card4.title': 'Interactive TUI',
+      'features.card4.desc': '<code>engram tui</code> launches a beautiful terminal UI. Navigate, search, and explore memories with vim keys.',
+      'features.card5.title': '15 MCP tools',
+      'features.card5.desc': 'mem_save, mem_search, mem_context, mem_session_summary, mem_timeline, and 10 more. Standard MCP protocol — plug in and go.',
+      'features.card6.title': 'Git sync',
+      'features.card6.desc': 'Share memories across machines with <code>engram sync</code>. Uses compressed chunks — no merge conflicts, no huge files.',
+      'how.eyebrow': 'How it works',
+      'how.headline1': 'Three steps to a',
+      'how.headline2': 'permanent memory.',
+      'how.step1.title': 'Install once',
+      'how.step1.desc': 'One <code>brew install</code> command. Or download the binary directly for Windows and Mac/Linux. No runtime, no dependencies, no setup scripts.',
+      'how.step2.title': 'Agent saves memory',
+      'how.step2.desc': 'You do nothing. Agents call <code>mem_save</code> for bugfixes, decisions, discoveries, and conventions automatically. Key moments stay ready for later.',
+      'how.step3.title': 'Next session: context loaded',
+      'how.step3.desc': 'Start a new session and your agent automatically searches past memories, resumes where you left off, and never asks you to re-explain the codebase.',
+      'agents.eyebrow': 'Compatibility',
+      'agents.headline1': 'Works with',
+      'agents.headline2': 'every agent',
+      'agents.headline3': 'you already use.',
+      'agents.sub': 'Standard MCP protocol. If it speaks MCP, it works with Engram.',
+      'agents.desc.0': 'Plugin marketplace',
+      'agents.desc.1': 'Built-in setup',
+      'agents.desc.2': 'Built-in setup',
+      'agents.desc.3': 'Built-in setup',
+      'agents.desc.4': 'MCP config',
+      'agents.desc.5': 'MCP compatible',
+      'agents.desc.6': 'MCP compatible',
+      'agents.desc.7': 'Standard protocol',
+      'agents.footer': 'View all setup guides',
+      'comparison.eyebrow': 'Comparison',
+      'comparison.headline1': 'Better by design.',
+      'comparison.headline2': 'Not by accident.',
+      'comparison.sub': 'Engram is inspired by claude-mem. But made different.',
+      'comparison.th.feature': 'Feature',
+      'comparison.th.claude': 'claude-mem',
+      'comparison.note': 'Inspired by claude-mem — but agent-agnostic, simpler, and built different.',
+      'comparison.row.0.label': 'Language',
+      'comparison.row.0.engram': 'Go (single binary)',
+      'comparison.row.0.other': 'TypeScript + Python',
+      'comparison.row.1.label': 'Agent lock-in',
+      'comparison.row.1.engram': 'None — any MCP agent',
+      'comparison.row.1.other': 'Claude Code only',
+      'comparison.row.2.label': 'Search',
+      'comparison.row.2.engram': 'SQLite FTS5 (built-in)',
+      'comparison.row.2.other': 'ChromaDB (extra process)',
+      'comparison.row.3.label': 'Storage',
+      'comparison.row.3.engram': 'Single .db file',
+      'comparison.row.3.other': 'SQLite + ChromaDB',
+      'comparison.row.4.label': 'Dependencies',
+      'comparison.row.4.engram': 'Zero',
+      'comparison.row.4.other': 'Node.js, Bun, uv, Python',
+      'comparison.row.5.label': 'Processes',
+      'comparison.row.5.engram': 'One binary',
+      'comparison.row.5.other': 'Worker + ChromaDB',
+      'comparison.row.6.label': 'Auto-capture',
+      'comparison.row.6.engram': 'Agent decides (clean)',
+      'comparison.row.6.other': 'All calls then compress',
+      'comparison.row.7.label': 'License',
+      'comparison.row.7.engram': 'MIT',
+      'comparison.row.7.other': 'AGPL-3.0',
+      'github.eyebrow': 'Open Source',
+      'github.headline1': 'Built in public.',
+      'github.headline2': 'Open for everyone.',
+      'github.sub': 'Engram is MIT licensed and actively maintained. Every decision is made in the open — audit the code, open an issue, or submit a PR.',
+      'github.stars': 'Stars',
+      'github.forks': 'Forks',
+      'github.contributors': 'Contributors',
+      'github.license': 'License',
+      'github.contributorsLabel': 'Contributors',
+      'github.active': 'Actively maintained',
+      'github.howTitle': 'How to contribute',
+      'github.step1': 'Fork the repository',
+      'github.step2': 'Create a feature branch',
+      'github.step3': 'Open a Pull Request',
+      'github.repoPrimary': 'Star on GitHub',
+      'github.repoSecondary': 'Submit a PR',
+      'github.quickIssues': 'Open Issues',
+      'github.quickContribute': 'How to contribute →',
+      'cta.eyebrow': 'Get started',
+      'cta.headline1': "Your agent's",
+      'cta.headline2': 'memory starts',
+      'cta.headline3': 'today.',
+      'cta.sub': 'One command. Persistent memory. Works with every agent you already use. No Node.js, no Python, no Docker. Just a single binary.',
+      'cta.install': 'Install Engram',
+      'cta.docs': 'Read the Docs',
+      'cta.github': 'GitHub',
+      'footer.tagline': 'Persistent memory for AI coding agents and more.',
+      'footer.credit': 'the physical trace of a memory in the brain.',
+      'footer.col.product': 'Product',
+      'footer.col.learn': 'Learn',
+      'footer.col.contribute': 'Contribute',
+      'footer.link.start': 'Getting Started',
+      'footer.link.install': 'Installation',
+      'footer.link.agents': 'Agent Setup',
+      'footer.link.features': 'Features',
+      'footer.link.architecture': 'Architecture',
+      'footer.link.guides': 'Guides',
+      'footer.link.reference': 'Reference',
+      'footer.link.comparison': 'Comparison',
+      'footer.link.github': 'GitHub',
+      'footer.link.contributing': 'Contributing',
+      'footer.link.issues': 'Issues',
+      'footer.link.changelog': 'Changelog',
+      'footer.legal': 'MIT License',
+      'footer.legal2': 'Made with 🤍 by <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a>, for the entire Gentleman Programming community.'
+    },
+    es: {
+      'nav.docs': 'Docs',
+      'nav.architecture': 'Arquitectura',
+      'nav.agents': 'Agentes',
+      'nav.github': 'GitHub',
+      'nav.install': 'Instalar',
+      'nav.languageLabel': 'Selector de idioma',
+      'hero.badge': 'Un binario — Sin dependencias',
+      'hero.headline1': 'Dale a tu agente',
+      'hero.headline2': 'un cerebro.',
+      'hero.sub': 'Memoria persistente para agentes de IA. Agnóstico de agente, SQLite + FTS5 y un solo binario de Go. Funciona con Claude Code, Gemini CLI, Codex, VS Code y más.',
+      'hero.cta.primary': 'Instalar Engram',
+      'hero.cta.secondary': 'Leer la documentación',
+      'hero.copy': 'Copiar comando de instalación',
+      'hero.platforms': 'También disponible para <a href="/getting-started/installation/">Windows y Mac/Linux</a>',
+      'hero.terminal.heading': 'engram - Memoria persistente para agentes de IA',
+      'hero.terminal.projectsLabel': 'Proyectos:',
+      'hero.terminal.sectionTitle': 'Observaciones recientes - 3 en total',
+      'hero.terminal.row1': 'Refinó el límite de sync para exportar memoria',
+      'hero.terminal.row1detail': '<strong>Qué</strong>: consolidó escrituras de chunks y redujo pasadas duplicadas de exportación...',
+      'hero.terminal.row2': 'Corrigió la reanudación de sesión tras compaction',
+      'hero.terminal.row3': 'Usar topic keys para memorias evolutivas del proyecto',
+      'hero.terminal.tag.architecture': '[arquitectura]',
+      'hero.terminal.tag.bugfix': '[bugfix]',
+      'hero.terminal.tag.decision': '[decisión]',
+      'hero.terminal.footer.nav': 'j/k navegar',
+      'hero.terminal.footer.select': 'enter seleccionar',
+      'hero.terminal.footer.search': '/ buscar',
+      'hero.terminal.footer.quit': 'q salir',
+      'problem.eyebrow': 'El problema',
+      'problem.headline1': 'Tu agente olvida todo',
+      'problem.headline2': 'cuando termina la sesión.',
+      'problem.body1': 'Cada vez que empezás una nueva sesión, tu agente de IA arranca sin contexto. El bug que arreglaste ayer, la decisión de arquitectura de la semana pasada, las convenciones que sigue tu equipo — desaparecen. Te repetís, volvés a explicar el contexto y ves los mismos errores otra vez.',
+      'problem.body2': 'Engram le da a tu agente una capa de memoria persistente y buscable. Nunca volvés a empezar desde cero.',
+      'problem.without': 'Sin Engram',
+      'problem.with': 'Con Engram',
+      'problem.chat.starting': 'Iniciando sesión...',
+      'problem.chat.user1': '¿Te acordás cómo resolvimos la query N+1 la semana pasada?',
+      'problem.chat.agent1': 'No tengo contexto de sesiones anteriores. ¿Podés explicarme el código?',
+      'problem.chat.tired': '...¿otra vez?',
+      'problem.chat.loading': 'Cargando 24 memorias... Contexto de sesión restaurado.',
+      'problem.chat.found': 'Lo encontré: <strong>Arreglé la query N+1 en UserList</strong> — agregué eager loading. La sesión anterior también decidió migrar a Prisma.',
+      'problem.chat.happy': 'Sigamos desde donde lo dejamos.',
+      'features.eyebrow': 'Características',
+      'features.headline': 'Todo lo que necesitás,<br/>nada de más.',
+      'features.sub': 'Diseñado para desarrolladores que valoran su tiempo y sus herramientas. Sin Node.js, sin Python, sin Docker. Un solo binario.',
+      'features.card1.title': 'Agnóstico de agente',
+      'features.card1.desc': 'Funciona con cualquier agente compatible con MCP. Claude Code, OpenCode, Gemini CLI, Codex, VS Code, Cursor, Windsurf o lo que quieras conectarle.',
+      'features.card2.title': 'SQLite + búsqueda FTS5',
+      'features.card2.desc': 'Búsqueda full-text integrada. Cero procesos externos. Tus memorias viven en un único archivo <code>engram.db</code>.',
+      'features.card3.title': 'Un binario, cero deps',
+      'features.card3.desc': 'Un solo binario de Go. Sin Node.js, sin Python, sin Docker, sin Chrome DB. <code>go install</code> y listo.',
+      'features.card4.title': 'TUI interactiva',
+      'features.card4.desc': '<code>engram tui</code> abre una interfaz de terminal cuidada. Navegá, buscá y explorá memorias con teclas vim.',
+      'features.card5.title': '15 herramientas MCP',
+      'features.card5.desc': 'mem_save, mem_search, mem_context, mem_session_summary, mem_timeline y 10 más. Protocolo MCP estándar: conectás y salís andando.',
+      'features.card6.title': 'Sync con Git',
+      'features.card6.desc': 'Compartí memorias entre máquinas con <code>engram sync</code>. Usa chunks comprimidos — sin conflictos de merge, sin archivos gigantes.',
+      'how.eyebrow': 'Cómo funciona',
+      'how.headline1': 'Tres pasos hacia una',
+      'how.headline2': 'memoria permanente.',
+      'how.step1.title': 'Instalá una vez',
+      'how.step1.desc': 'Un comando <code>brew install</code>. O descargá el binario directo para Windows y Mac/Linux. Sin runtime, sin dependencias, sin scripts de setup.',
+      'how.step2.title': 'El agente guarda memoria',
+      'how.step2.desc': 'Vos no hacés nada. Los agentes llaman a <code>mem_save</code> para bugfixes, decisiones, hallazgos y convenciones automáticamente. Los momentos clave quedan listos para después.',
+      'how.step3.title': 'Próxima sesión: contexto cargado',
+      'how.step3.desc': 'Arrancá una nueva sesión y tu agente busca memorias previas automáticamente, retoma donde quedaste y deja de pedirte que expliques de nuevo el código.',
+      'agents.eyebrow': 'Compatibilidad',
+      'agents.headline1': 'Funciona con',
+      'agents.headline2': 'cualquier agente',
+      'agents.headline3': 'que ya uses.',
+      'agents.sub': 'Protocolo MCP estándar. Si habla MCP, funciona con Engram.',
+      'agents.desc.0': 'Marketplace de plugins',
+      'agents.desc.1': 'Setup integrado',
+      'agents.desc.2': 'Setup integrado',
+      'agents.desc.3': 'Setup integrado',
+      'agents.desc.4': 'Config MCP',
+      'agents.desc.5': 'Compatible con MCP',
+      'agents.desc.6': 'Compatible con MCP',
+      'agents.desc.7': 'Protocolo estándar',
+      'agents.footer': 'Ver todas las guías de setup',
+      'comparison.eyebrow': 'Comparación',
+      'comparison.headline1': 'Mejor por diseño.',
+      'comparison.headline2': 'No por accidente.',
+      'comparison.sub': 'Engram está inspirado en claude-mem. Pero fue construido distinto.',
+      'comparison.th.feature': 'Característica',
+      'comparison.th.claude': 'claude-mem',
+      'comparison.note': 'Inspirado en claude-mem, pero agnóstico de agente, más simple y construido distinto.',
+      'comparison.row.0.label': 'Lenguaje',
+      'comparison.row.0.engram': 'Go (binario único)',
+      'comparison.row.0.other': 'TypeScript + Python',
+      'comparison.row.1.label': 'Lock-in de agente',
+      'comparison.row.1.engram': 'Ninguno — cualquier agente MCP',
+      'comparison.row.1.other': 'Solo Claude Code',
+      'comparison.row.2.label': 'Búsqueda',
+      'comparison.row.2.engram': 'SQLite FTS5 (integrado)',
+      'comparison.row.2.other': 'ChromaDB (proceso extra)',
+      'comparison.row.3.label': 'Almacenamiento',
+      'comparison.row.3.engram': 'Archivo .db único',
+      'comparison.row.3.other': 'SQLite + ChromaDB',
+      'comparison.row.4.label': 'Dependencias',
+      'comparison.row.4.engram': 'Cero',
+      'comparison.row.4.other': 'Node.js, Bun, uv, Python',
+      'comparison.row.5.label': 'Procesos',
+      'comparison.row.5.engram': 'Un binario',
+      'comparison.row.5.other': 'Worker + ChromaDB',
+      'comparison.row.6.label': 'Auto-captura',
+      'comparison.row.6.engram': 'Decide el agente (limpio)',
+      'comparison.row.6.other': 'Captura todo y luego comprime',
+      'comparison.row.7.label': 'Licencia',
+      'comparison.row.7.engram': 'MIT',
+      'comparison.row.7.other': 'AGPL-3.0',
+      'github.eyebrow': 'Open Source',
+      'github.headline1': 'Construido en público.',
+      'github.headline2': 'Abierto para todos.',
+      'github.sub': 'Engram tiene licencia MIT y mantenimiento activo. Cada decisión se toma en abierto: auditá el código, abrí un issue o mandá un PR.',
+      'github.stars': 'Stars',
+      'github.forks': 'Forks',
+      'github.contributors': 'Contribuidores',
+      'github.license': 'Licencia',
+      'github.contributorsLabel': 'Contribuidores',
+      'github.active': 'Mantenimiento activo',
+      'github.howTitle': 'Cómo contribuir',
+      'github.step1': 'Hacé un fork del repositorio',
+      'github.step2': 'Creá una branch para tu feature',
+      'github.step3': 'Abrí un Pull Request',
+      'github.repoPrimary': 'Dar estrella en GitHub',
+      'github.repoSecondary': 'Enviar un PR',
+      'github.quickIssues': 'Abrir issues',
+      'github.quickContribute': 'Cómo contribuir →',
+      'cta.eyebrow': 'Empezá ahora',
+      'cta.headline1': 'La memoria de tu agente',
+      'cta.headline2': 'empieza',
+      'cta.headline3': 'hoy.',
+      'cta.sub': 'Un comando. Memoria persistente. Funciona con cualquier agente que ya uses. Sin Node.js, sin Python, sin Docker. Solo un binario.',
+      'cta.install': 'Instalar Engram',
+      'cta.docs': 'Leer los docs',
+      'cta.github': 'GitHub',
+      'footer.tagline': 'Memoria persistente para agentes de IA y mucho más.',
+      'footer.credit': 'la huella física de un recuerdo en el cerebro.',
+      'footer.col.product': 'Producto',
+      'footer.col.learn': 'Aprender',
+      'footer.col.contribute': 'Contribuir',
+      'footer.link.start': 'Primeros pasos',
+      'footer.link.install': 'Instalación',
+      'footer.link.agents': 'Setup de agentes',
+      'footer.link.features': 'Características',
+      'footer.link.architecture': 'Arquitectura',
+      'footer.link.guides': 'Guías',
+      'footer.link.reference': 'Referencia',
+      'footer.link.comparison': 'Comparación',
+      'footer.link.github': 'GitHub',
+      'footer.link.contributing': 'Contribuir',
+      'footer.link.issues': 'Issues',
+      'footer.link.changelog': 'Changelog',
+      'footer.legal': 'Licencia MIT',
+      'footer.legal2': 'Hecho con 🤍 por <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a> para toda la comunidad de Gentleman Programming.'
+    }
+  };
+
   const nav = document.getElementById('nav');
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
+
+  function applyLang(lang) {
+    const messages = translations[lang] || translations.en;
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (key && messages[key] !== undefined) el.textContent = messages[key];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key && messages[key] !== undefined) el.innerHTML = messages[key];
+    });
+
+    document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+      const value = el.getAttribute('data-i18n-attr');
+      if (!value) return;
+      const [attr, key] = value.split(':');
+      if (attr && key && messages[key] !== undefined) {
+        el.setAttribute(attr, messages[key]);
+      }
+    });
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      const isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+
+    window.dispatchEvent(new CustomEvent('engram:langchange', { detail: { lang } }));
+  }
 
   window.addEventListener('scroll', () => {
     nav?.classList.toggle('scrolled', window.scrollY > 20);
@@ -207,4 +614,14 @@
     hamburger.setAttribute('aria-expanded', String(open));
     mobileMenu?.setAttribute('aria-hidden', String(!open));
   });
+
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang') || 'en';
+      localStorage.setItem('engram-landing-lang', lang);
+      applyLang(lang);
+    });
+  });
+
+  applyLang(localStorage.getItem('engram-landing-lang') || 'en');
 </script>

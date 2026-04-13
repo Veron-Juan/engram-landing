@@ -80,12 +80,12 @@ const contributorCount = contributors.length;
 
     <!-- Header -->
     <div class="github__header reveal">
-      <p class="eyebrow">Open Source</p>
+      <p class="eyebrow" data-i18n="github.eyebrow">Open Source</p>
       <h2 class="display-lg">
-        Built in public.<br/>
-        <span class="gradient-text">Open for everyone.</span>
+        <span data-i18n="github.headline1">Built in public.</span><br/>
+        <span class="gradient-text" data-i18n="github.headline2">Open for everyone.</span>
       </h2>
-      <p class="github__subtitle">
+      <p class="github__subtitle" data-i18n="github.sub">
         Engram is MIT licensed and actively maintained. Every decision is made
         in the open — audit the code, open an issue, or submit a PR.
       </p>
@@ -98,7 +98,7 @@ const contributorCount = contributors.length;
           <path d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10L3.5 13L5 8.5L1 5.5H6Z"/>
         </svg>
         <span>{formatNumber(stars)}</span>
-        <span>Stars</span>
+        <span data-i18n="github.stars">Stars</span>
       </a>
       <a href={`https://github.com/${REPO}/forks`} target="_blank" rel="noopener noreferrer" class="github__stat-pill">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -109,7 +109,7 @@ const contributorCount = contributors.length;
           <path d="M8 10v2"/>
         </svg>
         <span>{formatNumber(forks)}</span>
-        <span>Forks</span>
+        <span data-i18n="github.forks">Forks</span>
       </a>
       <div class="github__stat-pill">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -117,7 +117,7 @@ const contributorCount = contributors.length;
           <path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
         </svg>
         <span>{contributorCount}</span>
-        <span>Contributors</span>
+        <span data-i18n="github.contributors">Contributors</span>
       </div>
       <div class="github__stat-pill">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
@@ -125,7 +125,7 @@ const contributorCount = contributors.length;
           <circle cx="8" cy="8" r="2.5"/>
         </svg>
         <span>MIT</span>
-        <span>License</span>
+        <span data-i18n="github.license">License</span>
       </div>
     </div>
 
@@ -171,10 +171,10 @@ const contributorCount = contributors.length;
         <!-- Contributor list -->
         <div class="github__contributors-card">
           <div class="github__contributors-card-header">
-            <span class="github__contributors-label">Contributors</span>
+            <span class="github__contributors-label" data-i18n="github.contributorsLabel">Contributors</span>
             <div class="github__badge-active">
               <span class="github__dot-live" aria-hidden="true"></span>
-              Actively maintained
+              <span data-i18n="github.active">Actively maintained</span>
             </div>
           </div>
 
@@ -213,11 +213,11 @@ const contributorCount = contributors.length;
           </div>
 
           <div class="github__repo-body">
-            <h4 class="github__how-title">How to contribute</h4>
+            <h4 class="github__how-title" data-i18n="github.howTitle">How to contribute</h4>
             <ol class="github__steps">
-              <li>Fork the repository</li>
-              <li>Create a feature branch</li>
-              <li>Open a Pull Request</li>
+              <li data-i18n="github.step1">Fork the repository</li>
+              <li data-i18n="github.step2">Create a feature branch</li>
+              <li data-i18n="github.step3">Open a Pull Request</li>
             </ol>
           </div>
 
@@ -226,10 +226,10 @@ const contributorCount = contributors.length;
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                 <path d="M8 .25a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33C3.72 14.68 3.26 13 3.26 13c-.37-.93-.9-1.17-.9-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.67 7.67 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.52.56.83 1.28.83 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.14.46.55.38A8 8 0 0 0 8 .25z"/>
               </svg>
-              Star on GitHub
+              <span data-i18n="github.repoPrimary">Star on GitHub</span>
             </a>
             <a href={`https://github.com/${REPO}/pulls`} target="_blank" rel="noopener noreferrer" class="btn btn-secondary github__repo-btn">
-              Submit a PR
+              <span data-i18n="github.repoSecondary">Submit a PR</span>
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                 <path d="M2 6.5h9M7 3l3.5 3.5L7 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -243,14 +243,14 @@ const contributorCount = contributors.length;
               <circle cx="8" cy="8" r="7"/>
               <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
             </svg>
-            Open Issues
+            <span data-i18n="github.quickIssues">Open Issues</span>
           </a>
           <a href={`https://github.com/${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener noreferrer" class="github__qlink">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M3 13V3h7l3 3v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
               <path d="M10 3v3h3"/>
             </svg>
-            How to contribute →
+            <span data-i18n="github.quickContribute">How to contribute →</span>
           </a>
         </div>
       </div>
