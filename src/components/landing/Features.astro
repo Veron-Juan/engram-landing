@@ -19,7 +19,7 @@
     <div class="bento">
 
       <!-- Large card: Agent Agnostic -->
-      <div class="card bento__card bento__card--wide reveal">
+      <div class="card bento__card bento__card--agent reveal">
         <div class="bento__card-inner">
           <div class="icon-glow" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -48,7 +48,7 @@
       </div>
 
       <!-- SQLite FTS5 -->
-      <div class="card bento__card reveal reveal-delay-1">
+      <div class="card bento__card bento__card--sqlite reveal reveal-delay-1">
         <div class="icon-glow" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
             <ellipse cx="11" cy="6" rx="8" ry="3"/>
@@ -64,7 +64,7 @@
       </div>
 
       <!-- Single binary -->
-      <div class="card bento__card reveal reveal-delay-2">
+      <div class="card bento__card bento__card--binary reveal reveal-delay-2">
         <div class="icon-glow" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
             <rect x="3" y="3" width="16" height="16" rx="3"/>
@@ -79,7 +79,7 @@
       </div>
 
       <!-- TUI -->
-      <div class="card bento__card reveal reveal-delay-1">
+      <div class="card bento__card bento__card--tui reveal reveal-delay-1">
         <div class="icon-glow" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
             <rect x="2" y="4" width="18" height="14" rx="2"/>
@@ -93,33 +93,8 @@
         </p>
       </div>
 
-      <!-- Git Sync: large card -->
-      <div class="card bento__card bento__card--tall reveal reveal-delay-2">
-        <div class="icon-glow" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="6" cy="6" r="2.5"/>
-            <circle cx="16" cy="6" r="2.5"/>
-            <circle cx="11" cy="17" r="2.5"/>
-            <path d="M6 8.5v2a2.5 2.5 0 0 0 2.5 2.5h5a2.5 2.5 0 0 0 2.5-2.5v-2"/>
-            <path d="M11 14.5V11"/>
-          </svg>
-        </div>
-        <h3 class="bento__card-title">Git sync</h3>
-        <p class="bento__card-desc">
-          Share memories across machines with <code>engram sync</code>.
-          Uses compressed chunks — no merge conflicts, no huge files.
-        </p>
-        <div class="bento__code-block">
-          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync</span></div>
-          <div class="bento__code-line bc-comment"># exported 3 new memories →</div>
-          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">git commit -m <span class="bc-str">"sync engram"</span></span></div>
-          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync --import</span></div>
-          <div class="bento__code-line bc-comment"># ✓ imported 3 memories</div>
-        </div>
-      </div>
-
       <!-- MCP Tools -->
-      <div class="card bento__card bento__card--wide reveal reveal-delay-3">
+      <div class="card bento__card bento__card--mcp reveal reveal-delay-2">
         <div class="bento__card-inner">
           <div class="icon-glow" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
@@ -141,6 +116,35 @@
           <span class="bento__tool-chip">mem_session_summary</span>
           <span class="bento__tool-chip">mem_timeline</span>
           <span class="bento__tool-chip accent-chip">+ 10 more</span>
+        </div>
+      </div>
+
+      <!-- Git Sync -->
+      <div class="card bento__card bento__card--git reveal reveal-delay-3">
+        <div class="bento__card-inner">
+          <div class="icon-glow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <circle cx="6" cy="6" r="2.5"/>
+              <circle cx="16" cy="6" r="2.5"/>
+              <circle cx="11" cy="17" r="2.5"/>
+              <path d="M6 8.5v2a2.5 2.5 0 0 0 2.5 2.5h5a2.5 2.5 0 0 0 2.5-2.5v-2"/>
+              <path d="M11 14.5V11"/>
+            </svg>
+          </div>
+          <div class="bento__card-text">
+            <h3 class="bento__card-title">Git sync</h3>
+            <p class="bento__card-desc">
+              Share memories across machines with <code>engram sync</code>.
+              Uses compressed chunks — no merge conflicts, no huge files.
+            </p>
+          </div>
+        </div>
+        <div class="bento__code-block">
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync</span></div>
+          <div class="bento__code-line bc-comment"># exported 3 new memories →</div>
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">git commit -m <span class="bc-str">"sync engram"</span></span></div>
+          <div class="bento__code-line"><span class="bc-prompt">$</span> <span class="bc-cmd">engram sync --import</span></div>
+          <div class="bento__code-line bc-comment"># ✓ imported 3 memories</div>
         </div>
       </div>
 
@@ -166,11 +170,15 @@
     margin-inline: auto;
   }
 
-  /* Bento grid */
+  /* Bento grid — explicit areas prevent gaps at any zoom */
   .bento {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
+    grid-template-areas:
+      "agent  agent  sqlite"
+      "binary tui    tui"
+      "mcp    mcp    mcp"
+      "git    git    git";
     gap: 1px;
     background: var(--border-subtle);
     border: 1px solid var(--border-subtle);
@@ -234,13 +242,13 @@
     margin-top: 0.125rem;
   }
 
-  .bento__card--wide {
-    grid-column: span 2;
-  }
-
-  .bento__card--tall {
-    grid-row: span 2;
-  }
+  /* Grid area assignments */
+  .bento__card--agent  { grid-area: agent; }
+  .bento__card--sqlite { grid-area: sqlite; }
+  .bento__card--binary { grid-area: binary; }
+  .bento__card--tui    { grid-area: tui; }
+  .bento__card--mcp    { grid-area: mcp; }
+  .bento__card--git    { grid-area: git; }
 
   /* Agent chips */
   .bento__agents-row,
@@ -291,18 +299,25 @@
   @media (max-width: 1024px) {
     .bento {
       grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "agent  agent"
+        "sqlite binary"
+        "tui    tui"
+        "mcp    mcp"
+        "git    git";
     }
   }
 
   @media (max-width: 640px) {
     .bento {
       grid-template-columns: 1fr;
-    }
-
-    .bento__card--wide,
-    .bento__card--tall {
-      grid-column: span 1;
-      grid-row: span 1;
+      grid-template-areas:
+        "agent"
+        "sqlite"
+        "binary"
+        "tui"
+        "mcp"
+        "git";
     }
   }
 </style>
