@@ -307,8 +307,8 @@ h1, h2, h3, h4, h5, h6,
 /* ── Content panel (callout boxes) ──────────────────────── */
 .content-panel {
 	padding: 1.25rem 1.5rem;
-	border-radius: 12px;
-	background: rgba(26, 26, 34, 0.85);
+	
+	
 	border: 1px solid var(--engram-accent-border-subtle);
 	
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);

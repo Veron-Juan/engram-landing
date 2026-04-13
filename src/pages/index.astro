@@ -49,6 +49,16 @@ import Footer from '../components/landing/Footer.astro';
     </main>
     <Footer />
 
+    <button
+      id="scroll-top"
+      aria-label="Back to top"
+      title="Back to top"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
     <script>
       // ============================================================
       // Scroll Reveal — IntersectionObserver
@@ -122,11 +132,37 @@ import Footer from '../components/landing/Footer.astro';
         document.body.prepend(skip);
       };
 
+      // ============================================================
+      // Scroll to Top button
+      // ============================================================
+      const initScrollTop = () => {
+        const btn = document.getElementById('scroll-top');
+        if (!btn) return;
+
+        const SHOW_AFTER = 0.6; // show after 60% of page height scrolled
+
+        const update = () => {
+          const scrolled = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0 && scrolled / docHeight >= SHOW_AFTER) {
+            btn.classList.add('visible');
+          } else {
+            btn.classList.remove('visible');
+          }
+        };
+
+        window.addEventListener('scroll', update, { passive: true });
+        btn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      };
+
       // Boot
       document.addEventListener('DOMContentLoaded', () => {
         initReveal();
         initParallax();
         addSkipLink();
+        initScrollTop();
 
         // Trigger reveals for elements already in viewport on load
         document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
@@ -148,5 +184,58 @@ import Footer from '../components/landing/Footer.astro';
     outline: 2px solid #ea1889;
     outline-offset: 3px;
     border-radius: 4px;
+  }
+
+  /* ── Scroll-to-top button ─────────────────────────────────── */
+  #scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(234, 24, 137, 0.4);
+    background: rgba(9, 9, 11, 0.85);
+    color: #ea1889;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+    pointer-events: none;
+    transition:
+      opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  #scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  #scroll-top:hover {
+    border-color: rgba(234, 24, 137, 0.8);
+    box-shadow: 0 0 20px rgba(234, 24, 137, 0.35), 0 0 40px rgba(234, 24, 137, 0.12);
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  #scroll-top:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  @media (max-width: 640px) {
+    #scroll-top {
+      bottom: 1.25rem;
+      right: 1.25rem;
+    }
   }
 </style>
