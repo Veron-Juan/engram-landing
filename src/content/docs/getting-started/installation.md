@@ -39,7 +39,7 @@ go install ./cmd/engram
 
 ## Requirements
 
-- Go 1.25+ only if you build from source
+- Go 1.24+ only if you build from source
 - no runtime dependency stack
 - no Docker, no Node.js, no Python requirement for the binary itself
 

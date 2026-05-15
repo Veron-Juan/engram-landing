@@ -1,0 +1,30 @@
+---
+title: Engram Cloud
+description: Optional self-hosted replication and browser visibility for teams and operators. Local SQLite remains the source of truth.
+sidebar:
+  order: 1
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<div class="eyebrow">Optional replication layer</div>
+
+## Shared memory, under your control
+
+<p class="index-intro">
+  Engram Cloud adds project-scoped replication and a browser dashboard on top of the core binary. Local SQLite stays authoritative. Cloud is the replica — not the other way around.
+</p>
+
+<CardGrid class="section-grid" stagger>
+  <LinkCard title="What Is Engram Cloud" description="The mental model, what it adds, and what it deliberately does not replace." href="/engram-cloud/what-is-cloud/" />
+  <LinkCard title="Quickstart" description="Local smoke setup in four commands. Verify browser dashboard, then move to production." href="/engram-cloud/quickstart/" />
+  <LinkCard title="Self-Hosting" description="Deploy with the official GHCR image on Dokploy, Coolify, Portainer, or any VPS." href="/engram-cloud/self-hosting/" />
+  <LinkCard title="Dashboard" description="Server-rendered browser UI for stats, activity, project browser, and admin controls." href="/engram-cloud/dashboard/" />
+</CardGrid>
+
+## What Engram Cloud is not
+
+- Not cloud-only — local SQLite is always the source of truth
+- Not implicit sync-everything — `--all` is blocked in cloud mode; sync is per project
+- Not SaaS — fully self-hosted, no vendor lock-in
+- Not a replacement for the local binary — both runtimes coexist
