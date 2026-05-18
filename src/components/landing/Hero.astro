@@ -57,14 +57,9 @@
         Also available for <a href="/getting-started/installation/">Windows &amp; Mac/Linux</a>
       </p>
 
-      <div class="hero__visual-row reveal ">
+      <div class="hero__visual-row reveal">
         <div class="hero__visual-image-wrap">
           <img src="/engram-logo.png" alt="Engram elephant mascot" class="hero__visual-img" />
-          <div class="hero__tagline" aria-label="An elephant never forgets.">
-            <span class="hero__tagline-prompt">$</span>
-            <span class="hero__tagline-text" id="elephant-tagline"></span>
-            <span class="hero__tagline-cursor" aria-hidden="true">█</span>
-          </div>
         </div>
         <div class="hero__logotype" aria-hidden="true">
           <img
@@ -279,9 +274,10 @@
   /* Visual row: image + terminal side by side */
   .hero__visual-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
+    gap: 0;
     margin-top: 3rem;
     width: 100%;
   }
@@ -298,16 +294,16 @@
   }
 
   .hero__visual-img {
-    width: 70%;
+    width: 80%;
     max-width: 280px;
     height: auto;
     border-radius: 12px;
     object-fit: contain;
-    animation: elephant-float 4s ease-in-out infinite;
+   
     filter: drop-shadow(0 0 20px rgba(234, 24, 137, 0.2)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
     transition: filter 0.4s ease;
-    margin-top: 20px;
-    margin-left: 169px;
+    margin-bottom: 35px;
+    margin-left: 80px;
     z-index: 500;
   }
 
@@ -380,6 +376,14 @@
     justify-content: center;
     width: 100%;
     max-width: 560px;
+    /* wipe: fully clipped from the right (invisible) */
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* revealed: negative values expose the drop-shadow area outside the box */
+  .hero__logotype.is-visible {
+    clip-path: inset(-80px -80px -80px -80px);
   }
 
   .hero__logotype-img {
@@ -391,16 +395,13 @@
       drop-shadow(0 0 80px rgba(234, 24, 137, 0.15))
       drop-shadow(0 16px 40px rgba(0, 0, 0, 0.5));
     opacity: 0;
-    transform: translateY(18px) scale(0.97);
     transition:
-      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.6s ease 0.25s,
       filter 0.4s ease;
   }
 
-  .hero__logotype-img.is-visible {
+  .hero__logotype.is-visible .hero__logotype-img {
     opacity: 1;
-    transform: translateY(0) scale(1);
   }
 
   .hero__logotype-img:hover {
@@ -481,18 +482,23 @@
   }
 
   // Logotype reveal on enter viewport
+  // NOTE: observe the unclipped visual-row parent — the logotype wrapper starts with
+  // clip-path: inset(0 100% 0 0) which causes browsers to compute 0% intersection
+  // on the img child, so a threshold > 0 would never fire on the img itself.
   const logotypeImg = document.getElementById('logotype-img') as HTMLImageElement | null;
   if (logotypeImg) {
+    const logotypeWrapper = logotypeImg.closest('.hero__logotype') as HTMLElement | null;
+    const triggerEl = (logotypeImg.closest('.hero__visual-row') as HTMLElement | null) ?? logotypeImg;
     const logoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Small delay so the elephant animation settles first
-          setTimeout(() => logotypeImg.classList.add('is-visible'), 300);
+          setTimeout(() => logotypeWrapper?.classList.add('is-visible'), 300);
           logoObserver.disconnect();
         }
       });
-    }, { threshold: 0.25 });
-    logoObserver.observe(logotypeImg);
+    }, { threshold: 0.1 });
+    logoObserver.observe(triggerEl);
   }
 
   // Start typing when the element scrolls into view
