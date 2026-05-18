@@ -388,6 +388,7 @@
 
   .hero__logotype-img {
     width: 100%;
+    min-width: 207px;
     height: auto;
     object-fit: contain;
     filter:
@@ -426,6 +427,23 @@
   @keyframes logotype-breathe {
     0%, 100% { opacity: 0.7; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.08); }
+  }
+
+  @media (max-width: 767px) {
+    .hero__visual-img {
+      width: clamp(70px, 32vw, 140px);
+      max-width: 140px;
+      margin-left: 0;
+      margin-bottom: 5px;
+    }
+
+    .hero__logotype {
+      max-width: clamp(140px, 44vw, 280px);
+    }
+
+    .hero__visual-image-wrap {
+      flex-shrink: 1;
+    }
   }
 
   @media (max-width: 900px) {
