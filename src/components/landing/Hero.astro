@@ -59,7 +59,7 @@
 
       <div class="hero__visual-row reveal">
         <div class="hero__visual-image-wrap">
-          <img src="/engram-logo.png" alt="Engram elephant mascot" class="hero__visual-img" />
+          <img src="/engram-logo.png" alt="Engram elephant mascot" class="hero__visual-img" id="engram-logo-img" />
         </div>
         <div class="hero__logotype" aria-hidden="true">
           <img
@@ -305,6 +305,8 @@
     margin-bottom: 35px;
     margin-left: 80px;
     z-index: 500;
+    cursor: pointer;
+    user-select: none;
   }
 
   .hero__visual-img:hover {
@@ -504,8 +506,8 @@
   // clip-path: inset(0 100% 0 0) which causes browsers to compute 0% intersection
   // on the img child, so a threshold > 0 would never fire on the img itself.
   const logotypeImg = document.getElementById('logotype-img') as HTMLImageElement | null;
+  const logotypeWrapper = logotypeImg?.closest('.hero__logotype') as HTMLElement | null;
   if (logotypeImg) {
-    const logotypeWrapper = logotypeImg.closest('.hero__logotype') as HTMLElement | null;
     const triggerEl = (logotypeImg.closest('.hero__visual-row') as HTMLElement | null) ?? logotypeImg;
     const logoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -531,6 +533,42 @@
   }, { threshold: 0.5 });
 
   if (taglineEl) observer.observe(taglineEl);
+
+  // Elephant click → replay logotype wipe animation
+  const elephantImg = document.getElementById('engram-logo-img') as HTMLImageElement | null;
+  let replayTimer: ReturnType<typeof setTimeout> | null = null;
+
+  elephantImg?.addEventListener('click', () => {
+    if (!logotypeWrapper) return;
+
+    // Cancel any pending replay
+    if (replayTimer !== null) {
+      clearTimeout(replayTimer);
+      replayTimer = null;
+    }
+
+    const logotypeImgEl = logotypeWrapper.querySelector('.hero__logotype-img') as HTMLElement | null;
+
+    // 1. Kill transitions so the reset is INSTANT (no 1s reverse-wipe)
+    logotypeWrapper.style.transition = 'none';
+    if (logotypeImgEl) logotypeImgEl.style.transition = 'none';
+
+    // 2. Remove visible state
+    logotypeWrapper.classList.remove('is-visible');
+
+    // 3. Force reflow so browser applies the hidden state before we restore transitions
+    void logotypeWrapper.offsetWidth;
+
+    // 4. Restore transitions in the next frame, then trigger the reveal
+    requestAnimationFrame(() => {
+      logotypeWrapper.style.transition = '';
+      if (logotypeImgEl) logotypeImgEl.style.transition = '';
+      replayTimer = setTimeout(() => {
+        logotypeWrapper.classList.add('is-visible');
+        replayTimer = null;
+      }, 50);
+    });
+  });
 
   window.addEventListener('engram:langchange', (event) => {
     const nextLang = (event as CustomEvent<{ lang?: LandingLang }>).detail?.lang === 'es' ? 'es' : 'en';
