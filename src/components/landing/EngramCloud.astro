@@ -26,11 +26,11 @@
       
 
       <h2 class="display-xl cloud__headline reveal reveal-delay-1">
-        <span class="cloud__headline-line">Your memory,</span>
-        <span class="cloud__headline-line gradient-text">everywhere.</span>
+        <span class="cloud__headline-line" data-i18n="cloud.headline1">Your memory,</span>
+        <span class="cloud__headline-line gradient-text" data-i18n="cloud.headline2">everywhere.</span>
       </h2>
 
-      <p class="cloud__sub reveal reveal-delay-2">
+      <p class="cloud__sub reveal reveal-delay-2" data-i18n="cloud.sub">
         Engram Cloud is an opt-in, self-hosted replication layer that syncs your agent's
         memory across machines — with a browser dashboard for your entire team. Local SQLite
         stays the source of truth. Always.
@@ -64,8 +64,8 @@
             <path d="M2 12l10 5 10-5"/>
           </svg>
         </div>
-        <h3 class="cloud__feature-title">Project-scoped replication</h3>
-        <p class="cloud__feature-desc">
+        <h3 class="cloud__feature-title" data-i18n="cloud.feature1.title">Project-scoped replication</h3>
+        <p class="cloud__feature-desc" data-i18n-html="cloud.feature1.desc">
           Each sync call is tied to one explicit <code>--project</code>. No surprise data leaks.
           You control exactly what leaves your machine.
         </p>
@@ -82,8 +82,8 @@
             <path d="M7 13h10M7 16.5h6"/>
           </svg>
         </div>
-        <h3 class="cloud__feature-title">Browser dashboard</h3>
-        <p class="cloud__feature-desc">
+        <h3 class="cloud__feature-title" data-i18n="cloud.feature2.title">Browser dashboard</h3>
+        <p class="cloud__feature-desc" data-i18n="cloud.feature2.desc">
           Server-rendered UI for stats, activity, project browser, contributors,
           and admin controls. Your team sees what the agents remember.
         </p>
@@ -96,8 +96,8 @@
             <path d="M12 8v4l2 2"/>
           </svg>
         </div>
-        <h3 class="cloud__feature-title">Self-hosted, your rules</h3>
-        <p class="cloud__feature-desc">
+        <h3 class="cloud__feature-title" data-i18n="cloud.feature3.title">Self-hosted, your rules</h3>
+        <p class="cloud__feature-desc" data-i18n="cloud.feature3.desc">
           Deploy on your infrastructure — Dokploy, Coolify, Portainer, or bare VPS.
           Official Docker image on GHCR. Linux amd64 + arm64.
         </p>
@@ -111,8 +111,8 @@
             <path d="M12 3v1M12 20v1M3 12h1M20 12h1"/>
           </svg>
         </div>
-        <h3 class="cloud__feature-title">Deterministic failures</h3>
-        <p class="cloud__feature-desc">
+        <h3 class="cloud__feature-title" data-i18n="cloud.feature4.title">Deterministic failures</h3>
+        <p class="cloud__feature-desc" data-i18n-html="cloud.feature4.desc">
           Clear reason codes — <code>blocked_unenrolled</code>, <code>auth_required</code>,
           <code>paused</code> — instead of silent drift. You know exactly what happened.
         </p>
@@ -129,31 +129,31 @@
           <span class="cloud__terminal-title">quickstart</span>
         </div>
         <div class="cloud__terminal-body">
-          <div class="cloud__code-line"><span class="cc-comment"># Start cloud + Postgres</span></div>
+          <div class="cloud__code-line"><span class="cc-comment" data-i18n="cloud.terminal.comment1"># Start cloud + Postgres</span></div>
           <div class="cloud__code-line"><span class="cc-prompt">$</span> <span class="cc-cmd">docker compose -f docker-compose.cloud.yml up -d</span></div>
-          <div class="cloud__code-line cloud__code-line--gap"><span class="cc-comment"># Configure & enroll</span></div>
+          <div class="cloud__code-line cloud__code-line--gap"><span class="cc-comment" data-i18n="cloud.terminal.comment2"># Configure & enroll</span></div>
           <div class="cloud__code-line"><span class="cc-prompt">$</span> <span class="cc-cmd">engram cloud config --server http://127.0.0.1:18080</span></div>
           <div class="cloud__code-line"><span class="cc-prompt">$</span> <span class="cc-cmd">engram cloud enroll my-project</span></div>
-          <div class="cloud__code-line cloud__code-line--gap"><span class="cc-comment"># Sync & verify</span></div>
+          <div class="cloud__code-line cloud__code-line--gap"><span class="cc-comment" data-i18n="cloud.terminal.comment3"># Sync & verify</span></div>
           <div class="cloud__code-line"><span class="cc-prompt">$</span> <span class="cc-cmd">engram sync --cloud --project my-project</span></div>
-          <div class="cloud__code-line"><span class="cc-output">✓ pushed 42 observations to cloud</span></div>
+          <div class="cloud__code-line"><span class="cc-output" data-i18n="cloud.terminal.output">✓ pushed 42 observations to cloud</span></div>
         </div>
       </div>
     </div>
 
     <!-- Bottom CTA -->
     <div class="cloud__cta reveal reveal-delay-3">
-      <p class="cloud__cta-text">
+      <p class="cloud__cta-text" data-i18n="cloud.cta.text">
         Local-first. Team-visible. Your infrastructure.
       </p>
       <div class="cloud__cta-actions">
         <a href="/engram-cloud/quickstart/" class="btn btn-primary btn-lg cloud__cta-btn">
-          <span>Deploy Engram Cloud</span>
+          <span data-i18n="cloud.cta.primary">Deploy Engram Cloud</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/engram-cloud/what-is-cloud/" class="btn btn-secondary btn-lg">
+        <a href="/engram-cloud/what-is-cloud/" class="btn btn-secondary btn-lg" data-i18n="cloud.cta.secondary">
           Learn more
         </a>
       </div>

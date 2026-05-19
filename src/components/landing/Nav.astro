@@ -434,7 +434,25 @@
       'footer.link.issues': 'Issues',
       'footer.link.changelog': 'Changelog',
       'footer.legal': 'MIT License',
-      'footer.legal2': 'Made with 🤍 by <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a>, for the entire Gentleman Programming community.'
+      'footer.legal2': 'Made with 🤍 by <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a>, for the entire Gentleman Programming community.',
+      'cloud.headline1': 'Your memory,',
+      'cloud.headline2': 'everywhere.',
+      'cloud.sub': "Engram Cloud is an opt-in, self-hosted replication layer that syncs your agent's memory across machines — with a browser dashboard for your entire team. Local SQLite stays the source of truth. Always.",
+      'cloud.feature1.title': 'Project-scoped replication',
+      'cloud.feature1.desc': 'Each sync call is tied to one explicit <code>--project</code>. No surprise data leaks. You control exactly what leaves your machine.',
+      'cloud.feature2.title': 'Browser dashboard',
+      'cloud.feature2.desc': 'Server-rendered UI for stats, activity, project browser, contributors, and admin controls. Your team sees what the agents remember.',
+      'cloud.feature3.title': 'Self-hosted, your rules',
+      'cloud.feature3.desc': 'Deploy on your infrastructure — Dokploy, Coolify, Portainer, or bare VPS. Official Docker image on GHCR. Linux amd64 + arm64.',
+      'cloud.feature4.title': 'Deterministic failures',
+      'cloud.feature4.desc': 'Clear reason codes — <code>blocked_unenrolled</code>, <code>auth_required</code>, <code>paused</code> — instead of silent drift. You know exactly what happened.',
+      'cloud.terminal.comment1': '# Start cloud + Postgres',
+      'cloud.terminal.comment2': '# Configure & enroll',
+      'cloud.terminal.comment3': '# Sync & verify',
+      'cloud.terminal.output': '✓ pushed 42 observations to cloud',
+      'cloud.cta.text': 'Local-first. Team-visible. Your infrastructure.',
+      'cloud.cta.primary': 'Deploy Engram Cloud',
+      'cloud.cta.secondary': 'Learn more'
     },
     es: {
       'nav.docs': 'Docs',
@@ -593,7 +611,25 @@
       'footer.link.issues': 'Issues',
       'footer.link.changelog': 'Changelog',
       'footer.legal': 'Licencia MIT',
-      'footer.legal2': 'Hecho con 🤍 por <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a> para toda la comunidad de Gentleman Programming.'
+      'footer.legal2': 'Hecho con 🤍 por <a href="https://github.com/Veron-Juan" target="_blank" rel="noopener noreferrer" style="color:#e5e5e5;font-weight:600;">Juan Veron</a> para toda la comunidad de Gentleman Programming.',
+      'cloud.headline1': 'Tu memoria,',
+      'cloud.headline2': 'en todos lados.',
+      'cloud.sub': 'Engram Cloud es una capa de replicación opcional y auto-hospedada que sincroniza la memoria de tu agente entre máquinas — con un dashboard web para todo tu equipo. SQLite local sigue siendo la fuente de verdad. Siempre.',
+      'cloud.feature1.title': 'Replicación por proyecto',
+      'cloud.feature1.desc': 'Cada llamada de sync está asociada a un <code>--project</code> explícito. Sin filtraciones de datos inesperadas. Vos controlás exactamente qué sale de tu máquina.',
+      'cloud.feature2.title': 'Dashboard web',
+      'cloud.feature2.desc': 'UI renderizada en servidor con estadísticas, actividad, explorador de proyectos, contribuidores y controles de administración. Tu equipo ve qué recuerdan los agentes.',
+      'cloud.feature3.title': 'Auto-hospedado, tus reglas',
+      'cloud.feature3.desc': 'Desplegá en tu infraestructura — Dokploy, Coolify, Portainer o VPS directo. Imagen Docker oficial en GHCR. Linux amd64 + arm64.',
+      'cloud.feature4.title': 'Fallas determinísticas',
+      'cloud.feature4.desc': 'Códigos de error claros — <code>blocked_unenrolled</code>, <code>auth_required</code>, <code>paused</code> — en lugar de drift silencioso. Sabés exactamente qué pasó.',
+      'cloud.terminal.comment1': '# Iniciar cloud + Postgres',
+      'cloud.terminal.comment2': '# Configurar e inscribir',
+      'cloud.terminal.comment3': '# Sincronizar y verificar',
+      'cloud.terminal.output': '✓ enviadas 42 observaciones al cloud',
+      'cloud.cta.text': 'Local primero. Visible para el equipo. Tu infraestructura.',
+      'cloud.cta.primary': 'Desplegar Engram Cloud',
+      'cloud.cta.secondary': 'Saber más'
     }
   };
 
@@ -653,4 +689,9 @@
   });
 
   applyLang(localStorage.getItem('engram-landing-lang') || 'en');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('engram-landing-lang') || 'en';
+    if (saved !== 'en') applyLang(saved);
+  });
 </script>

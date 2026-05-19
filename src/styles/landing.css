@@ -103,7 +103,7 @@ body.landing-body {
 }
 
 .section {
-  padding-block: var(--section-py);
+  padding-block: calc(var(--section-py) / 2);
 }
 
 /* ===================================================
