@@ -15,6 +15,7 @@
 
     <nav class="nav__links" aria-label="Main navigation">
       <a href="/getting-started/" class="nav__link" data-i18n="nav.docs">Docs</a>
+      <a href="/#engram-cloud" class="nav__link " data-i18n="nav.cloud">Engram Cloud</a>
       <a href="/architecture/" class="nav__link" data-i18n="nav.architecture">Architecture</a>
       <a href="/agent-setup/" class="nav__link" data-i18n="nav.agents">Agents</a>
       <a href="https://github.com/Gentleman-Programming/engram" class="nav__link" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
@@ -41,6 +42,7 @@
 
   <div class="nav__mobile-menu" id="mobile-menu" aria-hidden="true">
     <a href="/getting-started/" class="nav__mobile-link" data-i18n="nav.docs">Docs</a>
+    <a href="/#engram-cloud" class="nav__mobile-link nav__mobile-link--cloud" data-i18n="nav.cloud">Engram Cloud</a>
     <a href="/architecture/" class="nav__mobile-link" data-i18n="nav.architecture">Architecture</a>
     <a href="/agent-setup/" class="nav__mobile-link" data-i18n="nav.agents">Agents</a>
     <a href="https://github.com/Gentleman-Programming/engram" class="nav__mobile-link" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
@@ -228,6 +230,31 @@
 
   .nav__mobile-link:hover { color: var(--text-primary); }
 
+  .nav__link--cloud,
+  .nav__mobile-link--cloud {
+    position: relative;
+    color: var(--accent);
+  }
+
+  .nav__link--cloud::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .nav__link--cloud:hover,
+  .nav__mobile-link--cloud:hover {
+    color: var(--text-primary);
+    background: rgba(234, 24, 137, 0.1);
+  }
+
   @media (max-width: 720px) {
     .nav__links,
     .nav__actions { display: none; }
@@ -254,6 +281,7 @@
       'nav.docs': 'Docs',
       'nav.architecture': 'Architecture',
       'nav.agents': 'Agents',
+      'nav.cloud': 'Engram Cloud',
       'nav.github': 'GitHub',
       'nav.install': 'Install',
       'nav.languageLabel': 'Language selector',
@@ -412,6 +440,7 @@
       'nav.docs': 'Docs',
       'nav.architecture': 'Arquitectura',
       'nav.agents': 'Agentes',
+      'nav.cloud': 'Engram Cloud',
       'nav.github': 'GitHub',
       'nav.install': 'Instalar',
       'nav.languageLabel': 'Selector de idioma',
