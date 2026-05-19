@@ -106,8 +106,17 @@ export default defineConfig({
 					translations: { es: 'Referencia' },
 					autogenerate: { directory: 'reference' },
 				},
-				
-				
+				{
+					label: 'Engram Cloud',
+					translations: { es: 'Engram Cloud' },
+					items: [
+						{ label: 'Overview', translations: { es: 'Visión General' }, slug: 'engram-cloud' },
+						{ label: 'What Is Engram Cloud', translations: { es: 'Qué Es Engram Cloud' }, slug: 'engram-cloud/what-is-cloud' },
+						{ label: 'Quickstart', translations: { es: 'Inicio Rápido' }, slug: 'engram-cloud/quickstart' },
+						{ label: 'Self-Hosting', translations: { es: 'Auto-alojamiento' }, slug: 'engram-cloud/self-hosting' },
+						{ label: 'Dashboard', slug: 'engram-cloud/dashboard' },
+					],
+				},
 			],
 		}),
 	],
